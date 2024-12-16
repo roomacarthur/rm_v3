@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Blog Posts</h1>
+<div id="posts-container">
+    {% include 'blog/partials/post_list_partial.html' %}
+</div>
+
+<div id="load-more-trigger" 
+     hx-get="{% url 'blog:post_list' %}?page=2" 
+     hx-trigger="revealed" 
+     hx-swap="beforeend" 
+     hx-target="#posts-container">
+    <p>Loading more posts...</p>
+</div>
+{% endblock content %}

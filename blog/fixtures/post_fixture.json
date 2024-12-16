@@ -1,0 +1,191 @@
+[
+  {
+    "model": "blog.post",
+    "pk": 1,
+    "fields": {
+      "title": "Understanding Django for Beginners",
+      "slug": "understanding-django-for-beginners",
+      "category": 1,
+      "author": 1,
+      "feature_image": "",
+      "excerpt": "Learn the basics of Django, the popular web framework.",
+      "content": "Django is a high-level Python web framework that encourages rapid development...",
+      "created": "2024-12-01T12:00:00Z",
+      "edited": "2024-12-02T14:00:00Z",
+      "meta_description": "An introductory guide to Django for beginners.",
+      "meta_keywords": "Django, Python, Web Framework, Beginner",
+      "alt_text": "Django logo",
+      "hashtags": "django,python,webdevelopment"
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 2,
+    "fields": {
+      "title": "10 Tips for Healthy Living",
+      "slug": "10-tips-for-healthy-living",
+      "category": 2,
+      "author": 1,
+      "feature_image": "",
+      "excerpt": "Discover 10 practical tips to improve your lifestyle.",
+      "content": "Healthy living is more than just a trend—it’s a way of life...",
+      "created": "2024-12-03T10:00:00Z",
+      "edited": "2024-12-04T11:30:00Z",
+      "meta_description": "Tips for leading a healthier lifestyle.",
+      "meta_keywords": "Health, Lifestyle, Tips",
+      "alt_text": "Healthy living tips"
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 3,
+    "fields": {
+      "title": "Mastering JavaScript",
+      "slug": "mastering-javascript",
+      "category": 3,
+      "author": 1,
+      "feature_image": "",
+      "excerpt": "A comprehensive guide to becoming proficient in JavaScript.",
+      "content": "JavaScript is a versatile programming language used for web development...",
+      "created": "2024-12-05T09:00:00Z",
+      "edited": "2024-12-06T10:00:00Z",
+      "meta_description": "Advanced techniques and tips for mastering JavaScript.",
+      "meta_keywords": "JavaScript, Programming, Web Development",
+      "alt_text": "JavaScript code",
+      "hashtags": "javascript,programming,webdevelopment"
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 4,
+    "fields": {
+      "title": "Exploring Machine Learning",
+      "slug": "exploring-machine-learning",
+      "category": 4,
+      "author": 1,
+      "feature_image": "",
+      "excerpt": "An introduction to the world of machine learning.",
+      "content": "Machine learning is a branch of artificial intelligence that focuses on building systems that learn from data...",
+      "created": "2024-12-07T08:00:00Z",
+      "edited": "2024-12-08T09:00:00Z",
+      "meta_description": "A beginner's guide to machine learning concepts and applications.",
+      "meta_keywords": "Machine Learning, AI, Data Science",
+      "alt_text": "Machine learning concept",
+      "hashtags": "machinelearning,ai,datascience"
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 5,
+    "fields": {
+      "title": "The Future of Technology",
+      "slug": "the-future-of-technology",
+      "category": 5,
+      "author": 1,
+      "feature_image": "",
+      "excerpt": "Predictions and trends for the future of technology.",
+      "content": "Technology is evolving at a rapid pace, and the future holds many exciting possibilities...",
+      "created": "2024-12-09T07:00:00Z",
+      "edited": "2024-12-10T08:00:00Z",
+      "meta_description": "Insights into the future trends and advancements in technology.",
+      "meta_keywords": "Technology, Future, Trends",
+      "alt_text": "Future technology",
+      "hashtags": "technology,future,trends"
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 6,
+    "fields": {
+      "title": "Learning Python for Data Science",
+      "slug": "learning-python-for-data-science",
+      "category": 1,
+      "author": 1,
+      "feature_image": "",
+      "excerpt": "An introduction to using Python for data science.",
+      "content": "Python is a powerful language for data science due to its simplicity and the availability of libraries...",
+      "created": "2024-12-11T07:00:00Z",
+      "edited": "2024-12-12T08:00:00Z",
+      "meta_description": "A guide to learning Python for data science.",
+      "meta_keywords": "Python, Data Science, Programming",
+      "alt_text": "Python for data science",
+      "hashtags": "python,datascience,programming"
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 7,
+    "fields": {
+      "title": "Effective Time Management Tips",
+      "slug": "effective-time-management-tips",
+      "category": 2,
+      "author": 1,
+      "feature_image": "",
+      "excerpt": "Tips and strategies for managing your time effectively.",
+      "content": "Time management is crucial for productivity and achieving your goals...",
+      "created": "2024-12-13T07:00:00Z",
+      "edited": "2024-12-14T08:00:00Z",
+      "meta_description": "Strategies for effective time management.",
+      "meta_keywords": "Time Management, Productivity, Tips",
+      "alt_text": "Time management tips",
+      "hashtags": "timemanagement,productivity,tips"
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 8,
+    "fields": {
+      "title": "Introduction to Cloud Computing",
+      "slug": "introduction-to-cloud-computing",
+      "category": 3,
+      "author": 1,
+      "feature_image": "",
+      "excerpt": "A beginner's guide to cloud computing.",
+      "content": "Cloud computing is the delivery of computing services over the internet...",
+      "created": "2024-12-15T07:00:00Z",
+      "edited": "2024-12-16T08:00:00Z",
+      "meta_description": "An introduction to the basics of cloud computing.",
+      "meta_keywords": "Cloud Computing, Technology, Beginner",
+      "alt_text": "Cloud computing concept",
+      "hashtags": "cloudcomputing,technology,beginner"
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 9,
+    "fields": {
+      "title": "Building REST APIs with Django",
+      "slug": "building-rest-apis-with-django",
+      "category": 4,
+      "author": 1,
+      "feature_image": "",
+      "excerpt": "Learn how to build REST APIs using Django.",
+      "content": "Django is a powerful framework for building web applications, and it can also be used to build REST APIs...",
+      "created": "2024-12-17T07:00:00Z",
+      "edited": "2024-12-18T08:00:00Z",
+      "meta_description": "A guide to building REST APIs with Django.",
+      "meta_keywords": "Django, REST API, Web Development",
+      "alt_text": "Django REST API",
+      "hashtags": "django,restapi,webdevelopment"
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 10,
+    "fields": {
+      "title": "The Importance of Cybersecurity",
+      "slug": "the-importance-of-cybersecurity",
+      "category": 5,
+      "author": 1,
+      "feature_image": "",
+      "excerpt": "Understanding the importance of cybersecurity in today's world.",
+      "content": "Cybersecurity is essential for protecting sensitive information and maintaining privacy...",
+      "created": "2024-12-19T07:00:00Z",
+      "edited": "2024-12-20T08:00:00Z",
+      "meta_description": "An overview of why cybersecurity is important.",
+      "meta_keywords": "Cybersecurity, Security, Technology",
+      "alt_text": "Cybersecurity concept",
+      "hashtags": "cybersecurity,security,technology"
+    }
+  }
+]
