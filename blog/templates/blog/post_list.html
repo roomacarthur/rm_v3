@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Blog Posts</h1>
-<div id="posts-container">
-    {% include 'blog/partials/post_list_partial.html' %}
+<h1 id="pageTitle">My Notes </h1>
+<div class="row">
+    <div class="col-md-8" id="posts-container">
+        {% include 'blog/partials/post_list_partial.html' %}
+    </div>
+    <div class="col-md-4">
+        <div class="position-sticky" style="top: 80px;">
+            {% include 'blog/partials/post_list_sidebar.html' %}
+        </div>
+    </div>
 </div>
 
 <div id="load-more-trigger" 
@@ -13,4 +20,6 @@
      hx-target="#posts-container">
     <p>Loading more posts...</p>
 </div>
+<!-- use htmx to direct the user to the top of the page. and display in bottom left corner-->
+
 {% endblock content %}

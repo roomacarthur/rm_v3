@@ -1,8 +1,12 @@
 {% for post in posts %}
-<div class="post">
+<div class="notesListItem ">
+    <span class="badge rounded-pill articleTag" style="background-color: {{post.category.background_colour}}; color: {{post.category.text_color}}">{{ post.category.name }}</span>
     <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
     <p>{{ post.excerpt }}</p>
-    <small>Published: {{ post.created }}</small>
+    <div class="d-flex align-items-center justify-content-between">
+        <small></small>
+        <small>{{ post.created }}</small>
+    </div>
 </div>
 {% endfor %}
 

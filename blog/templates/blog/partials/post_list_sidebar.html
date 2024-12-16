@@ -1,0 +1,24 @@
+
+
+
+<div class="p-4">
+    <h4 class="">Categories</h4>
+    <ol class="list-unstyled mb-0">
+        <li>
+            <a href="{% url 'blog:post_list' %}?category={{ category.slug }} %}" class="badge rounded-pill my-1 allPostsCategory">
+                All Posts
+            </a>
+        </li>
+        {% for category in categories %}
+            <li>
+                <a style="background-color: {{category.background_colour}}; color: {{category.text_color}}" href="{% url 'blog:post_list' %}?category={{ category.slug }} %}" class="badge rounded-pill my-1">
+                    {{ category.name }}
+                </a>
+            </li>
+        {% empty %}
+            <li>No categories available</li>
+        {% endfor %}
+    </ol>
+</div>
+
+
