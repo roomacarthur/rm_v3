@@ -3,6 +3,7 @@ from django.utils.text import slugify
 from django.urls import reverse
 from django.contrib.auth.models import User
 from colorfield.fields import ColorField
+from cloudinary.models import CloudinaryField
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -22,7 +23,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    feature_image = models.ImageField(upload_to='blog/images', null=True, blank=True)
+    feature_image = CloudinaryField('post-image')
     excerpt = models.TextField(max_length=200)
     content = models.TextField()
     hashtags = models.CharField(max_length=255, help_text="Comma-separated hashtags")
