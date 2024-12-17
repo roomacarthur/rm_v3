@@ -1,12 +1,30 @@
 <h1 id="pageTitle">My Notes</h1>
+
+<!-- Search Bar -->
+<div class="my-4">
+  <input 
+    type="text" 
+    name="search" 
+    placeholder="Search my notes..." 
+    hx-get="{% url 'blog:post_list' %}"
+    hx-target="#posts-container" 
+    hx-trigger="keyup changed delay:500ms"
+    hx-on="htmx:afterRequest: history.replaceState(null, '', '{% url 'blog:post_list' %}');"
+    hx-push-url="true"
+    class="form-control"
+  />
+</div>
+
+<!-- Categories -->
 <div class="mt-4">
-  <h4 class="">Categories</h4>
+  <h4>Categories</h4>
   <ol class="list-unstyled mb-4 d-flex flex-wrap">
     <li>
       <a 
         hx-get="{% url 'blog:post_list' %}"
         hx-target="#posts-container"
         hx-trigger="click"
+        hx-on="htmx:afterRequest: history.replaceState(null, '', '{% url 'blog:post_list' %}');"
         hx-push-url="true"
         class="badge rounded-pill m-1 allPostsCategory">
         All Posts
@@ -19,6 +37,7 @@
           hx-get="{% url 'blog:post_list' %}?category={{ category.slug }}"
           hx-target="#posts-container"
           hx-trigger="click"
+          hx-on="htmx:afterRequest: history.replaceState(null, '', '{% url 'blog:post_list' %}');"
           hx-push-url="true"
           class="badge rounded-pill m-1 list-unstyled categoryListBadge">
           {{ category.name }}
