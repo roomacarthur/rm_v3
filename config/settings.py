@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'home',
     'blog',
     'django_htmx',
+    'colorfield',
 ]
 
 MIDDLEWARE = [

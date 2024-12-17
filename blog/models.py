@@ -2,11 +2,12 @@ from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
 from django.contrib.auth.models import User
+from colorfield.fields import ColorField
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
-    background_colour = models.CharField(max_length=7, default='#007bff')  # HEX
-    text_color = models.CharField(max_length=100, default='white')
+    background_colour = ColorField(default='000000')
+    text_color = ColorField(default='ffffff')
     slug = models.SlugField(max_length=100, unique=True)
 
     def __str__(self):
