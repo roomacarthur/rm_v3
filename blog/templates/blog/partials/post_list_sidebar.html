@@ -1,24 +1,31 @@
-
-
-
-<div class="p-4">
-    <h4 class="">Categories</h4>
-    <ol class="list-unstyled mb-0">
-        <li>
-            <a href="{% url 'blog:post_list' %}?category={{ category.slug }}" class="badge rounded-pill my-1 allPostsCategory">
-                All Posts
-            </a>
-        </li>
-        {% for category in categories %}
-            <li>
-                <a style="background-color: {{category.background_colour}}; color: {{category.text_color}}" href="{% url 'blog:post_list' %}?category={{ category.slug }}" class="badge rounded-pill my-1">
-                    {{ category.name }}
-                </a>
-            </li>
-        {% empty %}
-            <li>No categories available</li>
-        {% endfor %}
-    </ol>
+<h1 id="pageTitle">My Notes</h1>
+<div class="mt-4">
+  <h4 class="">Categories</h4>
+  <ol class="list-unstyled mb-4 d-flex flex-wrap">
+    <li>
+      <a 
+        hx-get="{% url 'blog:post_list' %}"
+        hx-target="#posts-container"
+        hx-trigger="click"
+        hx-push-url="true"
+        class="badge rounded-pill m-1 allPostsCategory">
+        All Posts
+      </a>
+    </li>
+    {% for category in categories %}
+      <li>
+        <a 
+          style="background-color: {{ category.background_colour }}; color: {{ category.text_color }}"
+          hx-get="{% url 'blog:post_list' %}?category={{ category.slug }}"
+          hx-target="#posts-container"
+          hx-trigger="click"
+          hx-push-url="true"
+          class="badge rounded-pill m-1 list-unstyled categoryListBadge">
+          {{ category.name }}
+        </a>
+      </li>
+    {% empty %}
+      <li>No categories available</li>
+    {% endfor %}
+  </ol>
 </div>
-
-

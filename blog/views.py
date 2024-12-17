@@ -7,12 +7,26 @@ class PostListView(ListView):
     model = Post
     template_name = 'blog/post_list.html'
     context_object_name = 'posts'
-    paginate_by = 5  # Number of posts to load per request
+    paginate_by = 3  # Number of posts to load per request
 
+    def get_queryset(self):
+        queryset = Post.objects.all()
+        category_slug = self.request.GET.get('category')
+        if category_slug:
+            queryset = queryset.filter(category__slug=category_slug)
+        return queryset
+
+    def get_template_names(self):
+        if self.request.htmx:
+            return 'blog/partials/post_list_partial.html'
+        
+        return 'blog/post_list.html'
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['is_htmx'] = self.request.headers.get('HX-Request') == 'true'
         context['categories'] = Category.objects.all()
+        context['selected_category'] = self.request.GET.get('category', '')
         return context
 
     def render_to_response(self, context, **response_kwargs):

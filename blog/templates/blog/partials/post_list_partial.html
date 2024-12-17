@@ -1,17 +1,17 @@
 {% for post in posts %}
-<div class="notesListItem ">
-    <span class="badge rounded-pill articleTag" style="background-color: {{post.category.background_colour}}; color: {{post.category.text_color}}">{{ post.category.name }}</span>
-    <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-    <p>{{ post.excerpt }}</p>
-    <div class="d-flex align-items-center justify-content-between">
-        <small></small>
-        <small>{{ post.created }}</small>
-    </div>
-</div>
-{% endfor %}
 
-{% if not has_more %}
-<script>
-    document.getElementById('load-more-trigger').remove();
-</script>
+{% if forloop.last %}
+<div class="notesListItem" hx-get="{% url 'blog:post_list' %}?page={{ page_obj.number|add:1 }}" hx-trigger="revealed" hx-target="this" hx-swap="afterend"> 
+{% else %}
+  <div class="notesListItem">
 {% endif %}
+    <span class="badge rounded-pill articleTag"
+          style="background-color: {{ post.category.background_colour }}; color: {{ post.category.text_color }}">
+      {{ post.category.name }}
+    </span>
+    <h2><a href="{{ post.get_absolute_url }}" class="link-unstyled">{{ post.title }}</a></h2>
+    <div class="d-flex align-items-center justify-content-between">
+      <small>{{ post.created }}</small>
+    </div>
+  </div>
+{% endfor %}

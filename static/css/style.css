@@ -246,6 +246,11 @@ footer a:hover {
   border: 1px solid #535353;
   background-color: #f2f2f20d;
   color: #fff;
+  cursor: pointer;
+}
+
+.categoryListBadge {
+  cursor: pointer;
 }
 
 

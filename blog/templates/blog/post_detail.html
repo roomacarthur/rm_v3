@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
-
+{% block metaTitle %} - {{post.title}}{% endblock metaTitle %}
+{% block metaDescription %}{{post.meta_description}}{% endblock metaDescription %}
+{% block metaKeywords %}{{post.meta_keywords}}{% endblock metaKeywords %}
 {% block content %}
 <h1>title: {{ post.title }}</h1>
 <p>{{ post.content }}</p>
