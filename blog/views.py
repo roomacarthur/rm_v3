@@ -45,3 +45,14 @@ class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
     context_object_name = 'post'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = self.get_object()
+
+        # Related posts based on category (excluding the current post)
+        context['related_posts'] = Post.objects.filter(
+            category=post.category
+        ).exclude(id=post.id)[:5]
+
+        return context
