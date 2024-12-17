@@ -3,13 +3,13 @@
 {% block metaDescription %} {% endblock metaDescription %}
 {% block metaKeywords %} {% endblock metaKeywords %}
 {% block content %}
-<div class="row">
-  <div class="col-md-3">
+<div class="row g-4">
+  <div class="col-md-4">
     <div class="position-sticky" style="top: 80px">
       {% include 'blog/partials/post_list_sidebar.html' %}
     </div>
   </div>
-  <div class="col-md-9" id="posts-container">
+  <div class="col-md-8" id="posts-container">
     {% include 'blog/partials/post_list_partial.html' %}
   </div>
 </div>

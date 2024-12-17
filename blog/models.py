@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from colorfield.fields import ColorField
 from cloudinary.models import CloudinaryField
 
+
 class Category(models.Model):
     name = models.CharField(max_length=100)
     background_colour = ColorField(default='000000')
