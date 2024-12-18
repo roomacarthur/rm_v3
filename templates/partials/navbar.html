@@ -14,21 +14,43 @@
       class="navLinksContainer d-flex align-items-center justify-content-center"
     >
       <a class="navLinks" href="#">Work</a>
-      <a class="navLinks" href="#">Notes</a>
+      <a
+        class="navLinks {% if '/blog/' in request.path %}active{% endif %}"
+        href="{% url 'blog:post_list' %}"
+        >Notes</a
+      >
     </div>
     <div class="navSocial d-flex justify-content-end">
-      <div class="d-none d-sm-flex justify-content-end align-items-center gap-2">
-        <a class="text-decoration-none" href="https://www.linkedin.com/in/ruairidh-macarthur/" target="_blank"><i class="bi bi-linkedin"></i></a>
-        <a class="text-decoration-none" href="https://github.com/roomacarthur" target="_blank"><i class="bi bi-github"></i></a>
+      <div
+        class="d-none d-sm-flex justify-content-end align-items-center gap-2"
+      >
+        <a
+          class="text-decoration-none"
+          href="https://www.linkedin.com/in/ruairidh-macarthur/"
+          target="_blank"
+          ><i class="bi bi-linkedin"></i
+        ></a>
+        <a
+          class="text-decoration-none"
+          href="https://github.com/roomacarthur"
+          target="_blank"
+          ><i class="bi bi-github"></i
+        ></a>
       </div>
-      <div class="d-flex d-sm-none justify-content-center navSocialContainer dropdown ">
-        <div class="dropdown-toggle socialAt" data-bs-toggle="dropdown" aria-expanded="false">
-            @
-          </div>
-            <ul class="dropdown-menu socialAtDropdown">
-              <li><a class="dropdown-item" href="#">LinkedIn</a></li>
-              <li><a class="dropdown-item" href="#">GitHub</a></li>
-            </ul>
+      <div
+        class="d-flex d-sm-none justify-content-center navSocialContainer dropdown"
+      >
+        <div
+          class="dropdown-toggle socialAt"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          @
+        </div>
+        <ul class="dropdown-menu socialAtDropdown">
+          <li><a class="dropdown-item" href="#">LinkedIn</a></li>
+          <li><a class="dropdown-item" href="#">GitHub</a></li>
+        </ul>
       </div>
     </div>
   </nav>

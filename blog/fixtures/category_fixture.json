@@ -1,0 +1,52 @@
+[
+  {
+    "model": "blog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Technology",
+      "background_colour": "#007bff",
+      "text_color": "white",
+      "slug": "technology"
+    }
+  },
+  {
+    "model": "blog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Lifestyle",
+      "background_colour": "#28a745",
+      "text_color": "white",
+      "slug": "lifestyle"
+    }
+  },
+  {
+    "model": "blog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Travel",
+      "background_colour": "#ffc107",
+      "text_color": "black",
+      "slug": "travel"
+    }
+  },
+  {
+    "model": "blog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Food",
+      "background_colour": "#dc3545",
+      "text_color": "white",
+      "slug": "food"
+    }
+  },
+  {
+    "model": "blog.category",
+    "pk": 5,
+    "fields": {
+      "name": "Fitness",
+      "background_colour": "#17a2b8",
+      "text_color": "white",
+      "slug": "fitness"
+    }
+  }
+]

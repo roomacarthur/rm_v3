@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metaTitle %} - {{post.title}}{% endblock metaTitle %}
+{% block metaDescription %}{{post.meta_description}}{% endblock metaDescription %}
+{% block metaKeywords %}{{post.meta_keywords}}{% endblock metaKeywords %}
+
+{% block extraCSS %} 
+<link rel="stylesheet" href="{% static 'css/code_snippets.css' %}">
+{% endblock extraCSS %}
+{% block content %}
+<div class="row g-5 mt-4">
+    <!-- Sidebar -->
+    <div class="col-md-4 order-2 order-md-1 sidebar">
+        <div class="position-sticky" style="top: 90px">
+            <!-- Potential breadcrumb -->
+            {% comment %} <div class="p-4">
+                <p><a href="{% url 'home:home' %}"><i class="bi bi-house"></i></a> | <a href="{% url 'blog:post_list' %}">Notes</a></p>
+            </div> {% endcomment %}
+
+            <!-- Share Links -->
+            <div class="p-4">
+                <h4>Share This Post</h4>
+                <div class="blogDetailShare d-flex align-items-center justify-content-even">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank"><i class="bi bi-facebook shareFacebook"></i></a>
+                    <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ post.title }}" target="_blank"><i class="bi bi-twitter-x shareX"></i></a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}" target="_blank"><i class="bi bi-linkedin shareLinkedin"></i></a>
+                    <a href="https://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ post.title }}" target="_blank"><i class="bi bi-reddit shareReddit"></i></a>
+                </div>
+            </div>
+
+            <!-- Related Posts -->
+            <div class="p-4">
+                <h4>Related Posts</h4>
+                <ul class="list-unstyled">
+                    {% for related_post in related_posts %}
+                    <li>
+                        <a href="{{ related_post.get_absolute_url }}" class="link-offset-3-hover">
+                            {{ related_post.title }}<br>
+                            <small class="">{{ related_post.created|date:"M d, Y" }}</small>
+                        </a>
+                    </li>
+                    {% empty %}
+                    <li>No related posts available</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-8 order-1 order-md-2">
+        <article class="blog-post">
+            {% if post.feature_image %}
+            <img src="{{ post.feature_image.url }}" alt="{{ post.alt_text }}" class="mb-3 w-100 mx-auto object-fit-cover rounded-2" />
+            {% endif %}
+            <h1 class="my-2">{{ post.title }}</h1>
+            <p>
+                <a class="badge rounded-pill categoryListBadge" style="background-color: {{ post.category.background_colour }}; color: {{ post.category.text_color }};" href="{% url 'blog:post_list' %}?category={{ post.category.slug }}">
+                    {{ post.category }}
+                </a>
+            </p>
+            <div class="blog-post-meta mb-4">
+                <p class="mb-0">Written on {{ post.created|date:"M d, y" }} by {{ post.author }}</p>
+                {% for hashtag in formatted_hashtags %}
+                    <span class="text-primary">{{ hashtag }}</span>
+                {% endfor %}
+            </div>
+            {{ rendered_content|safe }}
+        </article>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extraJS %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        hljs.highlightAll();
+    });
+</script>
+{% endblock extraJS %}
