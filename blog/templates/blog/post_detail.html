@@ -53,7 +53,7 @@
             {% if post.feature_image %}
             <img src="{{ post.feature_image.url }}" alt="{{ post.alt_text }}" class="mb-3 w-100 mx-auto object-fit-cover rounded-2" />
             {% endif %}
-            <h2 class="my-2">{{ post.title }}</h2>
+            <h1 class="my-2">{{ post.title }}</h1>
             <p>
                 <a class="badge rounded-pill categoryListBadge" style="background-color: {{ post.category.background_colour }}; color: {{ post.category.text_color }};" href="{% url 'blog:post_list' %}?category={{ post.category.slug }}">
                     {{ post.category }}

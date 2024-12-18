@@ -9,7 +9,7 @@ pre code.hljs {
 code{
     color: #c792ea;
     background-color: #1c1e26;
-    padding: 3px;
+    padding: 1px 4px;
     border-radius: 3px;
     border: 1px solid #535353;
 }
@@ -47,7 +47,7 @@ code.hljs {
 .hljs-attribute,
 .hljs-symbol,
 .hljs-template-variable {
-  color: #f07178; /* Pink/Red */
+  color: #8df071; /* Pink/Red */
 }
 
 /* Functions, class names */
