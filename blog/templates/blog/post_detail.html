@@ -6,32 +6,33 @@
 {% block content %}
 <div class="row g-5">
     <!-- Sidebar -->
-    <div class="col-md-4">
-        <div class="position-sticky" style="top: 2rem;">
-            <!-- Search Bar -->
-            <div class="p-4 mb-3 bg-body-tertiary rounded">
-                <h4 class="fst-italic">Search</h4>
-                <input 
-                    type="text" 
-                    name="search" 
-                    placeholder="Search posts..." 
-                    hx-get="{% url 'blog:post_list' %}"
-                    hx-target="#related-posts-container"
-                    hx-trigger="keyup changed delay:500ms"
-                    hx-push-url="true"
-                    class="form-control"
-                />
+    <div class="col-md-4 order-2 order-md-1 sidebar">
+        <div class="position-sticky" style="top: 90px">
+            <!-- Potential breadcrumb -->
+            {% comment %} <div class="p-4">
+                <p><a href="{% url 'home:home' %}"><i class="bi bi-house"></i></a> | <a href="{% url 'blog:post_list' %}">Notes</a></p>
+            </div> {% endcomment %}
+
+            <!-- Share Links -->
+            <div class="p-4">
+                <h4>Share This Post</h4>
+                <div class="blogDetailShare d-flex align-items-center justify-content-even">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank"><i class="bi bi-facebook shareFacebook"></i></a>
+                    <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ post.title }}" target="_blank"><i class="bi bi-twitter-x shareX"></i></a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}" target="_blank"><i class="bi bi-linkedin shareLinkedin"></i></a>
+                    <a href="https://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ post.title }}" target="_blank"><i class="bi bi-reddit shareReddit"></i></a>
+                </div>
             </div>
 
             <!-- Related Posts -->
             <div class="p-4">
-                <h4 class="fst-italic">Related Posts</h4>
+                <h4>Related Posts</h4>
                 <ul class="list-unstyled">
                     {% for related_post in related_posts %}
                     <li>
-                        <a href="{{ related_post.get_absolute_url }}" class="link-body-emphasis">
+                        <a href="{{ related_post.get_absolute_url }}" class="">
                             {{ related_post.title }}<br>
-                            <small class="text-body-secondary">{{ related_post.created|date:"M d, Y" }}</small>
+                            <small class="">{{ related_post.created|date:"M d, Y" }}</small>
                         </a>
                     </li>
                     {% empty %}
@@ -39,56 +40,32 @@
                     {% endfor %}
                 </ul>
             </div>
-
-            <!-- Share Links -->
-            <div class="p-4">
-                <h4 class="fst-italic">Share This Post</h4>
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
-                           target="_blank">Facebook</a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ post.title }}"
-                           target="_blank">Twitter</a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}"
-                           target="_blank">LinkedIn</a>
-                    </li>
-                </ul>
-            </div>
         </div>
     </div>
 
     <!-- Main Content -->
-    <div class="col-md-8">
-
+    <div class="col-md-8 order-1 order-md-2">
         <article class="blog-post">
-            <img src="{{ post.feature_image.url }}" style="height: 300px; width: 100%;"alt="{{ post.alt_text }}" />
-            <h3>{{ post.title }}</h3>
-            <p class="blog-post-meta">
-                {{ post.created|date:"F d, Y" }} by {{ post.author }}
+            {% if post.feature_image %}
+            <img src="{{ post.feature_image.url }}" alt="{{ post.alt_text }}" class="mb-3 mw-100 mx-auto" />
+            {% endif %}
+            <h2 class="my-2">{{ post.title }}</h2>
+            <p>
+                <a class="badge rounded-pill categoryListBadge" style="background-color: {{ post.category.background_colour }}; color: {{ post.category.text_color }};" href="{% url 'blog:post_list' %}?category={{ post.category.slug }}">
+                    {{ post.category }}
+                </a>
             </p>
-
+            <div class="blog-post-meta mb-4">
+                <p class="mb-0">Written on {{ post.created|date:"M d, y" }} by {{ post.author }}</p>
+                {% for hashtag in formatted_hashtags %}
+                    <span class="text-primary">{{ hashtag }}</span>
+                {% endfor %}
+            </div>
             {{ post.content|safe }}
         </article>
-
-        <!-- Pagination to Next/Previous Posts -->
-        <nav class="blog-pagination mt-4" aria-label="Pagination">
-            {% if page_obj.get_previous %}
-            <a class="btn btn-outline-primary rounded-pill" href="{{ page_obj.get_previous.get_absolute_url }}">
-                ← {{ page_obj.get_previous.title }}
-            </a>
-            {% endif %}
-            {% if page_obj.get_next %}
-            <a class="btn btn-outline-primary rounded-pill float-end" href="{{ page_obj.get_next.get_absolute_url }}">
-                {{ page_obj.get_next.title }} →
-            </a>
-            {% endif %}
-        </nav>
     </div>
 </div>
+
 
 
 

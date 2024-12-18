@@ -50,6 +50,11 @@ class PostDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         post = self.get_object()
 
+        if post.hashtags:
+            hashtags = post.hashtags.split(',')  # Split by commas
+            formatted_hashtags = [f"#{tag.strip().lower()}" for tag in hashtags]  # Format hashtags
+            context['formatted_hashtags'] = formatted_hashtags
+
         # Related posts based on category (excluding the current post)
         context['related_posts'] = Post.objects.filter(
             category=post.category

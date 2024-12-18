@@ -261,6 +261,31 @@ footer a:hover {
   text-decoration: underline;
 }
 
+.blogDetailShare{
+  font-size: 2rem;
+  gap: 1rem;
+}
+.shareFacebook {
+  color: #3b5998;
+}
+.shareX {
+  color: #fff;
+}
+.shareLinkedin {
+  color: #0e76a8;
+}
+.shareReddit{
+  color: #ff4500;
+}
+.shareFacebook:hover, .shareX:hover, .shareLinkedin:hover .shareReddit:hover {
+  color: #CFD1D1;
+}
+
+.blog-post-meta {
+  font-size: 0.8rem;
+  color: #CFD1D1;
+}
+
 /* tablets and up  */
 @media (min-width: 768px) {
   .navSocial {
