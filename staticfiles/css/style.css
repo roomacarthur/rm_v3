@@ -13,6 +13,7 @@ body {
   background-color: #1f1f1f;
   color: #cfd1d1;
   font-family: "Roboto", sans-serif;
+  font-size: 16px;
 }
 
 header {
@@ -32,6 +33,28 @@ h4,
 h5,
 h6 {
   font-family: "Outfit", sans-serif;
+  margin: 1em 0 0.5em 0;
+  letter-spacing: 1px;
+}
+h1{
+  font-size: 2.5em;
+
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+h5 {
+  font-size: 1em;
 }
 
 h6 {
@@ -58,12 +81,7 @@ a {
   text-decoration: none;
   color: #fff;
 }
-/* .navPersonal::after {
-  content: "Full Stack Developer";
-  font-size: 0.8em;
-  position: absolute;
-  bottom: -3px;
-} */
+
 .navPersonal span {
   font-size: 0.8em;
   font-weight: 300;
@@ -225,21 +243,65 @@ footer a:hover {
 .notesListItem {
   border: 1px solid #535353;
   background-color: #f2f2f20d;
-  border-radius: 24px;
+  border-radius: 10px;
   padding: 15px;
-  margin: 10px 0;
+  margin: 20px 0;
   position: relative;
 }
 
 .articleTag {
   border: 1px solid #535353;
-  background-color: #1a3822c9;
+  /* background-color: #1a3822c9; */
   padding: 3px 10px;
   border-radius: 12px;
   font-size: 0.6em;
   color: #fff;
   position: absolute;
   top: -10px;
+}
+
+.allPostsCategory{
+  border: 1px solid #535353;
+  background-color: #f2f2f20d;
+  color: #fff;
+  cursor: pointer;
+}
+
+.categoryListBadge {
+  cursor: pointer;
+}
+
+.postLink {
+  color: #CFD1D1;
+  letter-spacing: 1px;;
+}
+.postLink:hover {
+  text-decoration: underline;
+}
+
+.blogDetailShare{
+  font-size: 2rem;
+  gap: 1rem;
+}
+.shareFacebook {
+  color: #3b5998;
+}
+.shareX {
+  color: #fff;
+}
+.shareLinkedin {
+  color: #0e76a8;
+}
+.shareReddit{
+  color: #ff4500;
+}
+.shareFacebook:hover, .shareX:hover, .shareLinkedin:hover, .shareReddit:hover {
+  color: #CFD1D1;
+}
+
+.blog-post-meta {
+  font-size: 0.8rem;
+  color: #CFD1D1;
 }
 
 /* tablets and up  */
