@@ -3,6 +3,10 @@
 {% block metaTitle %} - {{post.title}}{% endblock metaTitle %}
 {% block metaDescription %}{{post.meta_description}}{% endblock metaDescription %}
 {% block metaKeywords %}{{post.meta_keywords}}{% endblock metaKeywords %}
+
+{% block extraCSS %} 
+<link rel="stylesheet" href="{% static 'css/code_snippets.css' %}">
+{% endblock extraCSS %}
 {% block content %}
 <div class="row g-5 mt-4">
     <!-- Sidebar -->
@@ -47,7 +51,7 @@
     <div class="col-md-8 order-1 order-md-2">
         <article class="blog-post">
             {% if post.feature_image %}
-            <img src="{{ post.feature_image.url }}" alt="{{ post.alt_text }}" class="mb-3 mw-100 mx-auto" />
+            <img src="{{ post.feature_image.url }}" alt="{{ post.alt_text }}" class="mb-3 w-100 mx-auto object-fit-cover rounded-2" />
             {% endif %}
             <h2 class="my-2">{{ post.title }}</h2>
             <p>
@@ -61,13 +65,17 @@
                     <span class="text-primary">{{ hashtag }}</span>
                 {% endfor %}
             </div>
-            {{ post.content|safe }}
+            {{ rendered_content|safe }}
         </article>
     </div>
 </div>
-
-
-
-
-
 {% endblock content %}
+
+{% block extraJS %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        hljs.highlightAll();
+    });
+</script>
+{% endblock extraJS %}

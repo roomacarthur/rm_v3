@@ -49,6 +49,7 @@ class PostDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         post = self.get_object()
+        context['rendered_content'] = post.render_markdown()  # rendered MD HTML
 
         if post.hashtags:
             hashtags = post.hashtags.split(',')  # Split by commas

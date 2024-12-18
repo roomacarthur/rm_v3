@@ -4,6 +4,8 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from colorfield.fields import ColorField
 from cloudinary.models import CloudinaryField
+from markdown import markdown
+from django.utils.safestring import mark_safe
 
 
 class Category(models.Model):
@@ -36,6 +38,10 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-created']
+
+    def render_markdown(self):
+        extensions = ['fenced_code', 'codehilite', 'tables', 'attr_list',]
+        return mark_safe(markdown(self.content, extensions=extensions))
 
     def __str__(self):
         return self.title
