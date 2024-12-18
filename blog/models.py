@@ -24,7 +24,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    feature_image = CloudinaryField('post-image')
+    feature_image = CloudinaryField('post-image', null=True, blank=True)
     excerpt = models.TextField(max_length=200)
     content = models.TextField()
     hashtags = models.CharField(max_length=255, help_text="Comma-separated hashtags")

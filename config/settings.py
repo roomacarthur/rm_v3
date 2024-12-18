@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_htmx',
     'colorfield',
     'cloudinary',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
