@@ -1,0 +1,99 @@
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  border-radius: 5px;
+  background: #1c1e26; /* Halcyon background */
+  color: #e0e6f0 !important; /* Primary text color */
+}
+code{
+    color: #c792ea;
+    background-color: #1c1e26;
+    padding: 3px;
+    border-radius: 3px;
+    border: 1px solid #535353;
+}
+
+code.hljs {
+  padding: 3px 5px;
+}
+
+/* General styling */
+.hljs {
+  background: #1c1e26;
+  color: #e0e6f0;
+}
+
+/* Comments */
+.hljs-comment,
+.hljs-quote {
+  color: #6a6f7e; /* Comment grey */
+  font-style: italic;
+}
+
+/* Keywords, attributes, and important language elements */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-name,
+.hljs-built_in {
+  color: #c792ea; /* Purple for keywords */
+}
+
+/* Strings, numbers, variables */
+.hljs-string,
+.hljs-number,
+.hljs-title,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-template-variable {
+  color: #f07178; /* Pink/Red */
+}
+
+/* Functions, class names */
+.hljs-function .hljs-title,
+.hljs-title.class_,
+.hljs-title.function_,
+.hljs-class .hljs-title {
+  color: #82aaff; /* Blue for functions and classes */
+}
+
+/* Operators, punctuation, and tags */
+.hljs-operator,
+.hljs-tag,
+.hljs-punctuation {
+  color: #89ddff; /* Cyan for punctuation */
+}
+
+/* Constants, booleans */
+.hljs-constant,
+.hljs-literal {
+  color: #ffcb6b; /* Gold for constants and booleans */
+}
+
+/* Variables, parameters, property names */
+.hljs-variable,
+.hljs-params,
+.hljs-property {
+  color: #f78c6c; /* Orange for variables */
+}
+
+/* Addition and deletion (for diffs) */
+.hljs-addition {
+  color: #c3e88d; /* Green */
+  background-color: rgba(76, 175, 80, 0.1);
+}
+.hljs-deletion {
+  color: #ff5370; /* Red */
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+/* Emphasis and strong */
+.hljs-emphasis {
+  font-style: italic;
+  color: #c792ea;
+}
+.hljs-strong {
+  font-weight: bold;
+  color: #f78c6c;
+}
