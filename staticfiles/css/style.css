@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #1f1f1f;
+  color: #cfd1d1;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  /* background: rgba(29, 38, 56, 0.829); */
+  font-family: "Outfit", sans-serif;
+  backdrop-filter: blur(2px);
+  position: relative;
+  /* margin-top: 10px;
+  padding: 10px; */
+  z-index: 4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Outfit", sans-serif;
+}
+
+h6 {
+  letter-spacing: 0.5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navPersonal {
+  width: 140px;
+}
+.navPersonal P {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  border-radius: 24px;
+}
+.navPersonal a {
+  text-decoration: none;
+  color: #fff;
+}
+/* .navPersonal::after {
+  content: "Full Stack Developer";
+  font-size: 0.8em;
+  position: absolute;
+  bottom: -3px;
+} */
+.navPersonal span {
+  font-size: 0.8em;
+  font-weight: 300;
+  color: #fff;
+  margin-top: -5px;
+}
+.navSocial {
+  width: 140px;
+  float: right;
+}
+.navLinksContainer {
+  gap: 5px;
+  border: 1px solid #535353;
+  background-color: #f2f2f20d;
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 5px;
+  position: relative;
+}
+
+.navLinks {
+  text-decoration: none;
+  padding: 5px 20px;
+  font-weight: 500;
+  font-size: 1em;
+  color: #fff;
+  /* text-transform: uppercase; */
+  letter-spacing: 1px;
+  position: relative;
+}
+.navLinks.active {
+  background-color: #f2f2f20d;
+  border-radius: 25px;
+}
+/* icon for active link  */
+.active::after {
+  content: "";
+  width: 8px;
+  height: 4px;
+  border-radius: 2px;
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.801);
+  /* background-color: rgba(67, 67, 67, 0.408); */
+  box-shadow: 0 2px 25px 2px #fff;
+}
+/* hover for nav links. */
+.navLinks:hover {
+  border-radius: 25px;
+  background: linear-gradient(to left, #f2f2f20d, #f2f2f200);
+  padding: 5px 20px;
+  color: #e4e4e4;
+}
+
+/* alternate hover, for the two links for symatry */
+.navLinksContainer .navLinks:nth-child(2):hover {
+  background: linear-gradient(
+    to right,
+    #f2f2f20d,
+    #f2f2f200
+  ); /* Reverse gradient for second link */
+}
+/* .navSocial {
+  display: none;
+} */
+.navSocialContainer {
+  border: 1px solid #535353;
+  background-color: #f2f2f20d;
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 5px;
+  width: 40px;
+}
+
+/* nav social links icons */
+.navSocial a i {
+  color: #fff;
+  font-size: 1.5em;
+  padding: 5px;
+  text-align: center;
+  display: block;
+}
+
+.navSocial a i:hover {
+  color: #dbd4d4;
+}
+
+.socialAt {
+  text-decoration: none;
+  padding: 5px 20px;
+  font-weight: 300;
+  font-size: 1em;
+  color: #fff;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+/* disable dropdown icon */
+.socialAt::after {
+  display: none;
+}
+
+.socialAtDropdown {
+  background-color: #f2f2f20d;
+  border: 1px solid #535353;
+  border-radius: 24px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  transform: translate3d(6.4px, 45px, 0px) !important;
+}
+
+.socialAtDropdown a {
+  color: #fff;
+}
+/* --------------------------------------- Footer */
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-family: "Outfit", sans-serif;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.homeRecentExperience {
+  padding-right: 10px;
+}
+
+.homeCard {
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #535353;
+  background-color: #f2f2f20d;
+  /* background-color: #1f1f1f; */
+  /* box-shadow: 0 0px 5px 0px #969696; */
+  border-radius: 24px;
+  width: 100%;
+  max-width: 400px;
+  height: 450px;
+}
+.homeCardImg {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid #535353; */
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.homeExperienceTimeline {
+  max-width: 500px;
+}
+
+/* notes page styles --------------------------------- */
+
+.notesListItem {
+  border: 1px solid #535353;
+  background-color: #f2f2f20d;
+  border-radius: 24px;
+  padding: 15px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.articleTag {
+  border: 1px solid #535353;
+  background-color: #1a3822c9;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.6em;
+  color: #fff;
+  position: absolute;
+  top: -10px;
+}
+
+/* tablets and up  */
+@media (min-width: 768px) {
+  .navSocial {
+    display: block;
+  }
+}
