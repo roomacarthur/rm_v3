@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import PortfolioTemplateView
+from . import views
 
 app_name = 'portfolio'
 
 urlpatterns = [
-    path('work/', PortfolioTemplateView.as_view(), name='portfolio'),
+    path('work/', views.PortfolioListView.as_view(), name='portfolio'),
+    path('work/<slug:slug>/', views.PortfolioDetailView.as_view(), name='project_detail'),
 ]
