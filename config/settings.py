@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'home',
     'blog',
+    'portfolio',
     'django_htmx',
     'colorfield',
     'cloudinary',
