@@ -9,7 +9,7 @@
           style="background-color: {{ post.category.background_colour }}; color: {{ post.category.text_color }}">
       {{ post.category.name }}
     </span>
-    <h2><a href="{{ post.get_absolute_url }}" class="link-unstyled postLink">{{ post.title }}</a></h2>
+    <h2 class="postListTitle"><a href="{{ post.get_absolute_url }}" class="link-unstyled postLink">{{ post.title }}</a></h2>
     <div class="d-flex align-items-center justify-content-between">
       <small class="">By {{post.author }}</small>
       <small>{{ post.created|date:"M d, y" }}</small>
