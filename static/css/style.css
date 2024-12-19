@@ -36,9 +36,8 @@ h6 {
   margin: 1em 0 0.5em 0;
   letter-spacing: 1px;
 }
-h1{
+h1 {
   font-size: 2.5em;
-
 }
 
 h2 {
@@ -260,7 +259,7 @@ footer a:hover {
   top: -10px;
 }
 
-.allPostsCategory{
+.allPostsCategory {
   border: 1px solid #535353;
   background-color: #f2f2f20d;
   color: #fff;
@@ -270,19 +269,19 @@ footer a:hover {
 .categoryListBadge {
   cursor: pointer;
 }
-.postListTitle{
+.postListTitle {
   margin: 0.5em 0;
 }
 
 .postLink {
-  color: #CFD1D1;
-  letter-spacing: 1px;;
+  color: #cfd1d1;
+  letter-spacing: 1px;
 }
 .postLink:hover {
   text-decoration: underline;
 }
 
-.blogDetailShare{
+.blogDetailShare {
   font-size: 2rem;
   gap: 1rem;
 }
@@ -295,16 +294,19 @@ footer a:hover {
 .shareLinkedin {
   color: #0e76a8;
 }
-.shareReddit{
+.shareReddit {
   color: #ff4500;
 }
-.shareFacebook:hover, .shareX:hover, .shareLinkedin:hover, .shareReddit:hover {
-  color: #CFD1D1;
+.shareFacebook:hover,
+.shareX:hover,
+.shareLinkedin:hover,
+.shareReddit:hover {
+  color: #cfd1d1;
 }
 
 .blog-post-meta {
   font-size: 0.8rem;
-  color: #CFD1D1;
+  color: #cfd1d1;
 }
 
 /* tablets and up  */
