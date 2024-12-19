@@ -7,6 +7,7 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ('title', 'meta_keywords', 'hashtags')
     list_filter = ('category', 'created')
 
+
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
 

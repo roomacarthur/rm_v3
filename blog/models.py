@@ -1,3 +1,4 @@
+from datetime import timezone
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
@@ -33,7 +34,7 @@ class Post(models.Model):
     meta_description = models.TextField(max_length=160)
     meta_keywords = models.CharField(max_length=255, help_text="Comma-separated SEO keywords")
     alt_text = models.CharField(max_length=100, help_text="Alt text for feature image")
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField()
     edited = models.DateTimeField(auto_now=True)
 
     class Meta:
