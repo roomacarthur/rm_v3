@@ -15,6 +15,7 @@ import environ
 import os
 import dj_database_url
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -89,25 +90,32 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env("PGDATABASE"),
-        'USER': env("PGUSER"),
-        'PASSWORD': env("PGPASSWORD"),
-        'HOST': env("PGHOST"),
-        'PORT': env("PGPORT", default="5432"),
+# Determine the database configuration
+if env("DATABASE_URL", default=None):
+    # Use DATABASE_URL from .env or environment variables
+    DATABASES = {
+        'default': dj_database_url.parse(env("DATABASE_URL"))
     }
-}
-
+elif env.bool("TEST", default=False):
+    # Use SQLite for testing
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    # Use individual PostgreSQL environment variables
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': env("PGDATABASE"),
+            'USER': env("PGUSER"),
+            'PASSWORD': env("PGPASSWORD"),
+            'HOST': env("PGHOST"),
+            'PORT': env("PGPORT", default="5432"),
+        }
+    }
 
 
 
