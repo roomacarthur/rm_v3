@@ -270,6 +270,9 @@ footer a:hover {
 .categoryListBadge {
   cursor: pointer;
 }
+.postListTitle{
+  margin: 0.5em 0;
+}
 
 .postLink {
   color: #CFD1D1;

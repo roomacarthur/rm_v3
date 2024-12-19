@@ -15,7 +15,7 @@
     >
       <a class="navLinks" href="#">Work</a>
       <a
-        class="navLinks {% if '/blog/' in request.path %}active{% endif %}"
+        class="navLinks {% if '/notes/' in request.path %}active{% endif %}"
         href="{% url 'blog:post_list' %}"
         >Notes</a
       >
