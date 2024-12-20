@@ -20,7 +20,7 @@
                                 {% endif %}
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title portfolioItemTitle" style="background-color: {{ project.background_colour }}; color: {{ project.text_color }};">
+                                <h5 class="card-title portfolioItemTitle" style="background-image: linear-gradient(45deg, {{ project.background_colour }}, {{ project.text_color }});">
                                     {{ project.title }}
                                 </h5>
                                 <p class="card-text portfolioItemBody">{{ project.short_description }}</p>
@@ -49,7 +49,7 @@
                                 {% endif %}
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title portfolioItemTitle" style="background-color: {{ project.background_colour }}; color: {{ project.text_color }};">{{ project.title }}</h5>
+                                <h5 class="card-title portfolioItemTitle" style="background-image: linear-gradient(45deg, {{ project.background_colour }}, {{ project.text_color }});">{{ project.title }}</h5>
                                 <p class="card-text portfolioItemBody">{{ project.short_description }}</p>
                             </div>
                             <div class="card-footer portfolioItemFooter">
