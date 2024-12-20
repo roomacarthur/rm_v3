@@ -1,22 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <article>
-        <h1>{{ project.title }}</h1>
-        {% if project.featured_image %}
-            <img src="{{ project.featured_image.url }}" alt="{{ project.title }}">
+    <div class="container projectDetailContainer">
+        <h1 class="projectDetailTitle" style="background-image: linear-gradient(45deg, {{ project.background_colour }}, {{ project.text_color }});">
+            {{ project.title }}
+        </h1>
+        {% if project.feature_image %}
+            <div class="projectDetailImageWrapper">
+                <img src="{{ project.feature_image.url }}" alt="{{ project.title }}" class="projectDetailImage">
+            </div>
         {% endif %}
-        <div>{{ project.render_markdown_content|safe }}</div>
-        <h3>Technologies:</h3>
-        <ul>
-            {% for tech in project.technologies.all %}
-                <li style="background-color: {{ tech.background_colour }}; color: {{ tech.text_color }};">
-                    {{ tech.name }}
-                </li>
-            {% endfor %}
-        </ul>
+        <div class="projectDetailBody">
+            {{ project.render_markdown_content|safe }}
+        </div>
+        <div class="projectTechnologies">
+            <h3>Technologies Used:</h3>
+            <ul class="technologyList">
+                {% for tech in project.technologies.all %}
+                    <li class="technologyBadge" style="background-color: {{ tech.background_colour }}; color: {{ tech.text_color }};">
+                        {{ tech.name }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
         {% if project.project_url %}
-            <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer">View Project</a>
+            <div class="projectExternalLink">
+                <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Live Project</a>
+            </div>
         {% endif %}
-    </article>
+    </div>
 {% endblock %}
