@@ -1,0 +1,44 @@
+[
+  {
+    "model": "portfolio.portfolioproject",
+    "pk": 1,
+    "fields": {
+      "title": "Personal Portfolio Website",
+      "slug": "personal-portfolio-website",
+      "background_colour": "#ffffff",
+      "text_color": "#000000",
+      "short_description": "A minimalist and fully responsive portfolio showcasing my skills and projects.",
+      "content": "## Overview\nThis project highlights my personal achievements and showcases my skills in web development.\n\n## Features\n- Built with Django and Python\n- Styled using TailwindCSS\n- Fully responsive\n\n![Portfolio Screenshot](https://res.cloudinary.com/demo/image/upload/sample.jpg)\n\n## Technologies Used\nPython, Django, TailwindCSS.",
+      "feature_image": null,
+      "meta_description": "A minimalist and fully responsive portfolio showcasing my skills and projects.",
+      "meta_keywords": "portfolio, django, web development, responsive design",
+      "project_url": "https://myportfolio.com",
+      "created_at": "2024-01-01T12:00:00Z",
+      "updated_at": "2024-01-02T12:00:00Z",
+      "is_complete": true,
+      "is_published": true,
+      "technologies": [1, 2, 3]
+    }
+  },
+  {
+    "model": "portfolio.portfolioproject",
+    "pk": 2,
+    "fields": {
+      "title": "E-commerce Platform",
+      "slug": "ecommerce-platform",
+      "background_colour": "#f5f5f5",
+      "text_color": "#333333",
+      "short_description": "An e-commerce platform with user authentication and payment integration.",
+      "content": "## Overview\nThis project is an e-commerce platform built with Django and Python. It features user authentication, payment gateways, and a user-friendly design.\n\n## Features\n- Secure authentication\n- Payment gateway integration\n- Dynamic product listings\n\n![E-commerce Screenshot](https://res.cloudinary.com/demo/image/upload/sample.jpg)\n\n## Technologies Used\nPython, Django, Stripe API, Bootstrap.",
+      "feature_image": null,
+      "meta_description": "An e-commerce platform with user authentication and payment integration.",
+      "meta_keywords": "ecommerce, django, payment integration, secure authentication",
+      "project_url": "https://myecommerce.com",
+      "created_at": "2024-01-10T12:00:00Z",
+      "updated_at": "2024-01-11T12:00:00Z",
+      "is_complete": true,
+      "is_published": true,
+      "technologies": [1, 2]
+    }
+  }
+]

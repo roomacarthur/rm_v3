@@ -1,6 +1,133 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %} {% block extraCSS %}
+<link rel="stylesheet" href="{% static 'css/timeline.css' %}" />
+{% endblock extraCSS %} {% block content %}
 
-{% block content %}
-<h1 class="text-center mt-3">Coming Soon</h1>
-<h2 class="text-center">👀</h2>
-{% endblock content%}
+<!--Intro Section -->
+<section class="my-5 container d-flex flex-column align-items-center">
+    <img class="introImg"src="{% static 'images/roo.jpg'%}">
+    <h1 class="text-center"><span class="pageTitle">Hey it's Roo!</span> 👋</h1>
+    <div class="d-flex mt-4 flex-md-row flex-column justify-content-center homeRecentExperience">
+        <div>
+            <h4>Recent Experience 💼</h4>
+            <p>Full Stack Developer & Coding Coach @ Code Institute.</p>
+        </div>
+        <div>
+            <h4>Located 📍</h4>
+            <p>Durham, UK.</p>
+        </div>
+    </div>
+</section>
+<!-- Experiance and Tech Stack-->
+<section class="container my-5">
+  <div class="row justify-content-center column-gap-4">
+    <!-- Experience Timeline -->
+    <div class="col-12 col-md-5">
+      <h1>Experience</h1>
+      <ul class="timeline">
+        <li class="my-3">
+          <h4  class="pageTitle">Full Stack Developer & Coding Coach</h4>
+          <div class="d-flex flex-row justify-content-between experianceTimeLineItem mb-2">
+            <h6>Code Institute</h6>
+            <h6 class="ms-3">Oct 24 - Present</h6>
+          </div>
+          <p>
+            Full Stack Developer and Coding Coach providing coaching to support
+            students learning to become software developers.
+          </p>
+          <span class="experienceTech">// HTML // CSS // Bootstrap // JS // Python // SQL // Django // Postgres // Heroku</span>
+        </li>
+        <li>
+          <h4 class="pageTitle">Full Stack Developer & Tutor</h4>
+          <div class="d-flex flex-row justify-content-between experianceTimeLineItem mb-2">
+            <h6>Code Institute</h6>
+            <h6 class="ms-3">Feb 24 - Oct 24</h6>
+          </div>
+          <p>
+            Full Stack Developer and Coding Coach providing coaching to support
+            students learning to become software developers.
+          </p>
+            <span class="experienceTech">// HTML // CSS // Bootstrap // JS // Python // Django // Flask // React // Postgres // Heroku</span>
+        </li>
+                <li>
+          <h4 class="pageTitle">Web Developer</h4>
+          <div class="d-flex flex-row justify-content-between experianceTimeLineItem mb-2">
+            <h6>Freelance</h6>
+            <h6 class="ms-3">Jul 19 - Feb 24</h6>
+          </div>
+          <p>
+            Providing web solutions for clients, focusing on front end and CMS based systems.
+          </p>
+          <span class="experienceTech">// Javascript // Wordpress // Shopify // Django // React // NextJS</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="col-12 col-md-5">
+      <h1>Tech Stack</h1>
+      <div class="mb-4">
+        <h3>Languages</h3>
+        <div class="d-flex flex-wrap">
+          <span class="badge bg-secondary me-2 mb-2">HTML</span>
+          <span class="badge bg-secondary me-2 mb-2">CSS (Proficient)</span>
+          <span class="badge bg-secondary me-2 mb-2">JavaScript (Proficient)</span>
+          <span class="badge bg-secondary me-2 mb-2">Python (Proficient)</span>
+          <span class="badge bg-secondary me-2 mb-2">Java (Mid)</span>
+        </div>
+      </div>
+      <div class="mb-4">
+        <h3>Frameworks</h3>
+        <div class="d-flex flex-wrap">
+          <span class="badge bg-secondary me-2 mb-2">Django (proficiant)</span>
+          <span class="badge bg-secondary me-2 mb-2">React (Strong)</span>
+          <span class="badge bg-secondary me-2 mb-2">NextJS (Strong)</span>
+          <span class="badge bg-secondary me-2 mb-2">PyTailwind CSS(Proficient)</span>
+          <span class="badge bg-secondary me-2 mb-2">Bootstrap(Proficient)</span>
+        </div>
+      </div>
+      <div class="mb-4">
+        <h3>Tools</h3>
+        <div class="d-flex flex-wrap">
+          <span class="badge bg-secondary me-2 mb-2">Git (Proficient)</span>
+          <span class="badge bg-secondary me-2 mb-2">GitHub (Proficient)</span>
+          <span class="badge bg-secondary me-2 mb-2">Heroku (Proficient)</span>
+          <span class="badge bg-secondary me-2 mb-2">PostgreSQL (Proficient)</span>
+          <span class="badge bg-secondary me-2 mb-2">AWS (Strong)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container my-5">
+    <h1 class="pageTitle text-center">Latest Notes</h1>
+
+    <div class="row gy-4 mt-4"><!-- Add row and gutter spacing -->
+            {% for post in posts  %}
+                    <a href="{{ post.get_absolute_url }}" class="col-lg-4 col-md-6 col-sm-12 text-decoration-none"> <!-- Card link for completed posts -->
+                        <div class="card h-100 portfolioItemCard">
+                            <div class="card-header p-0" style="height: 200px;">
+                                {% if post.feature_image %}
+                                    <img src="{{ post.feature_image.url }}" alt="{{ post.title }}" class="w-100 h-100 object-fit-cover portfolioItemImg">
+                                {% else %}
+                                    <div class="w-100 h-100 portfolioNoImg" style="background-image: linear-gradient(45deg, {{ post.background_colour }}, {{ post.text_color }});">
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title portfolioItemTitle" style="background-image: linear-gradient(45deg, #cfd1d1, #cfd1d1);">
+                                    {{ post.title }}
+                                </h5>
+                                <span class="badge" style="background-color: {{ post.category.background_colour }}; color: {{ post.text_color }};">{{ post.category }}
+                                        </span>
+                                {% comment %} <p class="card-text portfolioItemBody pt-3">{{ post.excerpt }}</p> {% endcomment %}
+                            </div>
+                        </div>
+                    </a>
+            {% endfor %}
+        </div>
+
+</section>
+<section class="container my-5">
+    <h1 class="pageTitle text-center">When im not bashing keys...</h1>
+</section>
+{% endblock %}

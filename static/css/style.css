@@ -10,7 +10,8 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: #1f1f1f;
+  /* background-color: #1f1f1f; */
+  background-color: rgb(19, 23, 31);
   color: #cfd1d1;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -60,6 +61,29 @@ h6 {
   letter-spacing: 0.5px;
 }
 
+.pageTitle {
+  /* gradient pink to blue text */
+  background-color: red;
+  font-weight: 600;
+  /* Create the gradient. */
+  background-image: linear-gradient(
+    to right,
+    #d78dd2,
+    #b999ee,
+    #9da5e9,
+    #8fa9f0
+  );
+
+  /* Set the background size and repeat properties. */
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
 a {
   text-decoration: none;
 }
@@ -94,7 +118,7 @@ a {
 .navLinksContainer {
   gap: 5px;
   border: 1px solid #535353;
-  background-color: #f2f2f20d;
+  background-color: rgb(19, 23, 31);
   backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 5px;
@@ -209,8 +233,17 @@ footer a:hover {
   text-decoration: underline;
 }
 
-.homeRecentExperience {
-  padding-right: 10px;
+/* .homeRecentExperience{ gap: 4em;} */
+
+.experienceTech {
+  color: rgb(94 234 212);
+  font-size: 0.7em;
+}
+
+.introImg {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
 }
 
 .homeCard {
@@ -309,9 +342,156 @@ footer a:hover {
   color: #cfd1d1;
 }
 
+/* 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+----------------------------------------PORTFOLIO--@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+*/
+
+.portfolioItemCard {
+  border: 1px solid #1d2129;
+  background-color: #161922;
+  overflow: hidden;
+}
+
+.portfolioItemDisabled {
+  cursor: not-allowed !important;
+  opacity: 0.7;
+}
+
+.portfolioItemBody {
+  color: #cfd1d1;
+}
+
+.portfolioItemTitle {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #cfd1d1;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.portfolioItemCard:hover {
+  border-color: #303743;
+  cursor: pointer;
+
+  .portfolioItemImg {
+    transform: scale(1.05);
+    transition: transform 1.05s ease-in-out;
+  }
+}
+
+.portfolioNoImg {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+}
+
+.portfolioItemFooter {
+  border-top: 1px solid #1d2129;
+}
+
+.portfolioNoImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+---------------------------------PORTFOLIO-DETAIL--@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+*/
+
+.projectDetailContainer {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.projectDetailTitle {
+  font-family: "Outfit", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.projectDetailImageWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.projectDetailImage {
+  max-width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid #1d2129;
+}
+
+.projectDetailBody {
+  color: #cfd1d1;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.projectTechnologies {
+  margin-top: 2rem;
+}
+
+.technologyList {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.technologyBadge {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+}
+
+.projectExternalLink {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.projectExternalLink .btn-primary {
+  background-color: #38b2ac;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.projectExternalLink .btn-primary:hover {
+  background-color: #2d8f85;
+  color: #ffffff;
+}
+
 /* tablets and up  */
 @media (min-width: 768px) {
   .navSocial {
     display: block;
+  }
+  .homeRecentExperience {
+    gap: 4em;
   }
 }

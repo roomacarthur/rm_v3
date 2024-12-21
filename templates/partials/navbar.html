@@ -13,7 +13,7 @@
     <div
       class="navLinksContainer d-flex align-items-center justify-content-center"
     >
-      <a class="navLinks" href="#">Work</a>
+      <a class="navLinks {% if '/work/' in request.path %}active{% endif %}" href="{% url 'portfolio:portfolio' %}">Work</a>
       <a
         class="navLinks {% if '/notes/' in request.path %}active{% endif %}"
         href="{% url 'blog:post_list' %}"
