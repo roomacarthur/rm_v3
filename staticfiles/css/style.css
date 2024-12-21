@@ -11,7 +11,7 @@ html {
 }
 body {
   /* background-color: #1f1f1f; */
-  background-color: rgb(19,23,31);
+  background-color: rgb(19, 23, 31);
   color: #cfd1d1;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -61,19 +61,25 @@ h6 {
   letter-spacing: 0.5px;
 }
 
-.pageTitle{
+.pageTitle {
   /* gradient pink to blue text */
   background-color: red;
   font-weight: 600;
   /* Create the gradient. */
-  background-image: linear-gradient(to right, #d78dd2, #b999ee, #9da5e9, #8fa9f0);
-  
+  background-image: linear-gradient(
+    to right,
+    #d78dd2,
+    #b999ee,
+    #9da5e9,
+    #8fa9f0
+  );
+
   /* Set the background size and repeat properties. */
 
   /* Use the text as a mask for the background. */
   /* This will show the gradient as a text color rather than element bg. */
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; 
+  -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
 }
@@ -112,7 +118,7 @@ a {
 .navLinksContainer {
   gap: 5px;
   border: 1px solid #535353;
-  background-color:rgb(19,23,31);
+  background-color: rgb(19, 23, 31);
   backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 5px;
@@ -168,7 +174,7 @@ a {
 } */
 .navSocialContainer {
   border: 1px solid #535353;
-  background-color: #f2f2f20d;
+  background-color: rgb(19, 23, 31);
   backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 5px;
@@ -190,9 +196,8 @@ a {
 
 .socialAt {
   text-decoration: none;
-  padding: 5px 20px;
-  font-weight: 300;
-  font-size: 1em;
+  padding: 5px 15px;
+  font-weight: 500;
   color: #fff;
   letter-spacing: 1px;
   cursor: pointer;
@@ -203,12 +208,12 @@ a {
 }
 
 .socialAtDropdown {
-  background-color: #f2f2f20d;
+  background-color: rgb(19, 23, 31);
   border: 1px solid #535353;
-  border-radius: 24px;
-  padding-top: 15px;
+  border-radius: 12px;
+  padding-top: 14px;
   padding-bottom: 15px;
-  transform: translate3d(6.4px, 45px, 0px) !important;
+  transform: translate3d(6.4px, 50px, 0px) !important;
 }
 
 .socialAtDropdown a {
@@ -234,7 +239,11 @@ footer a:hover {
   font-size: 0.7em;
 }
 
-.introImg{height:300px;width:300px;border-radius:50%;}
+.introImg {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+}
 
 .homeCard {
   padding: 15px;
@@ -263,8 +272,8 @@ footer a:hover {
 /* notes page styles --------------------------------- */
 
 .notesListItem {
-  border: 1px solid #535353;
-  background-color: #f2f2f20d;
+  border: 1px solid #1d2129;
+  background-color: #161922;
   border-radius: 10px;
   padding: 15px;
   margin: 20px 0;
@@ -332,26 +341,24 @@ footer a:hover {
   color: #cfd1d1;
 }
 
-
-
 /* 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 ----------------------------------------PORTFOLIO--@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 */
 
-.portfolioItemCard{
-  Border: 1px solid #1d2129;
+.portfolioItemCard {
+  border: 1px solid #1d2129;
   background-color: #161922;
   overflow: hidden;
 }
 
-.portfolioItemDisabled{
-  cursor:not-allowed !important;
+.portfolioItemDisabled {
+  cursor: not-allowed !important;
   opacity: 0.7;
 }
 
-.portfolioItemBody{
+.portfolioItemBody {
   color: #cfd1d1;
 }
 
@@ -359,24 +366,24 @@ footer a:hover {
   font-family: "Outfit", sans-serif;
   font-size: 1.5em;
   font-weight: 600;
-  color:#cfd1d1;
+  color: #cfd1d1;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; 
+  -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
 }
 
-.portfolioItemCard:hover{
+.portfolioItemCard:hover {
   border-color: #303743;
   cursor: pointer;
 
-  .portfolioItemImg{
+  .portfolioItemImg {
     transform: scale(1.05);
     transition: transform 1.05s ease-in-out;
-  };
+  }
 }
 
-.portfolioNoImg{
+.portfolioNoImg {
   height: 200px;
   width: 100%;
   overflow: hidden;
@@ -389,9 +396,9 @@ footer a:hover {
 }
 
 .portfolioNoImg {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 
@@ -399,8 +406,6 @@ footer a:hover {
 ---------------------------------PORTFOLIO-DETAIL--@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 */
-
-
 
 .projectDetailContainer {
   margin-top: 2rem;
@@ -416,7 +421,7 @@ footer a:hover {
   padding: 1rem;
   border-radius: 0.375rem;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; 
+  -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
 }
@@ -485,5 +490,7 @@ footer a:hover {
   .navSocial {
     display: block;
   }
-  .homeRecentExperience{ gap: 4em;}
+  .homeRecentExperience {
+    gap: 4em;
+  }
 }
