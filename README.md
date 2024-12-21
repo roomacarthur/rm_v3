@@ -10,3 +10,4 @@ TODO:
 
 update media storage to AWS. 
 Add a breadcrumb?
+copy button on code snippets. turns to copied upon copying the snippet. 

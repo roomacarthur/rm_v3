@@ -1,0 +1,35 @@
+[
+  {
+    "model": "portfolio.technology",
+    "pk": 1,
+    "fields": {
+      "name": "Python",
+      "slug": "python",
+      "background_colour": "#306998",
+      "text_color": "#ffffff",
+      "description": "A high-level, general-purpose programming language."
+    }
+  },
+  {
+    "model": "portfolio.technology",
+    "pk": 2,
+    "fields": {
+      "name": "Django",
+      "slug": "django",
+      "background_colour": "#092E20",
+      "text_color": "#ffffff",
+      "description": "A high-level Python web framework for rapid development."
+    }
+  },
+  {
+    "model": "portfolio.technology",
+    "pk": 3,
+    "fields": {
+      "name": "TailwindCSS",
+      "slug": "tailwindcss",
+      "background_colour": "#38B2AC",
+      "text_color": "#ffffff",
+      "description": "A utility-first CSS framework for rapid UI development."
+    }
+  }
+]
