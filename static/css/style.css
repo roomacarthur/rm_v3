@@ -174,7 +174,7 @@ a {
 } */
 .navSocialContainer {
   border: 1px solid #535353;
-  background-color: #f2f2f20d;
+  background-color: rgb(19, 23, 31);
   backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 5px;
@@ -196,9 +196,8 @@ a {
 
 .socialAt {
   text-decoration: none;
-  padding: 5px 20px;
-  font-weight: 300;
-  font-size: 1em;
+  padding: 5px 15px;
+  font-weight: 500;
   color: #fff;
   letter-spacing: 1px;
   cursor: pointer;
@@ -209,12 +208,12 @@ a {
 }
 
 .socialAtDropdown {
-  background-color: #f2f2f20d;
+  background-color: rgb(19, 23, 31);
   border: 1px solid #535353;
-  border-radius: 24px;
-  padding-top: 15px;
+  border-radius: 12px;
+  padding-top: 14px;
   padding-bottom: 15px;
-  transform: translate3d(6.4px, 45px, 0px) !important;
+  transform: translate3d(6.4px, 50px, 0px) !important;
 }
 
 .socialAtDropdown a {
@@ -273,8 +272,8 @@ footer a:hover {
 /* notes page styles --------------------------------- */
 
 .notesListItem {
-  border: 1px solid #535353;
-  background-color: #f2f2f20d;
+  border: 1px solid #1d2129;
+  background-color: #161922;
   border-radius: 10px;
   padding: 15px;
   margin: 20px 0;
