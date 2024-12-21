@@ -112,7 +112,7 @@ a {
 .navLinksContainer {
   gap: 5px;
   border: 1px solid #535353;
-  background-color: #f2f2f20d;
+  background-color:rgb(19,23,31);
   backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 5px;
@@ -227,9 +227,14 @@ footer a:hover {
   text-decoration: underline;
 }
 
-.homeRecentExperience {
-  padding-right: 10px;
+/* .homeRecentExperience{ gap: 4em;} */
+
+.experienceTech {
+  color: rgb(94 234 212);
+  font-size: 0.7em;
 }
+
+.introImg{height:300px;width:300px;border-radius:50%;}
 
 .homeCard {
   padding: 15px;
@@ -335,10 +340,6 @@ footer a:hover {
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 */
 
-.portfolioContainer{
-
-}
-
 .portfolioItemCard{
   Border: 1px solid #1d2129;
   background-color: #161922;
@@ -393,29 +394,96 @@ footer a:hover {
     justify-content: center;
 }
 
-.object-fit-cover {
-    object-fit: cover; /* Ensures images maintain their aspect ratio while filling the container */
-    object-position: center; /* Centers the image */
-}
-.pageTitle {
-    margin-bottom: 2rem;
-}
-.technologies .badge {
-    margin-right: 5px;
-    margin-bottom: 5px;
-}
-.card-header > img {
-  border-top-left-radius: 0.375rem;
-  border-top-right-radius: 0.375rem;
-}
+/* 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+---------------------------------PORTFOLIO-DETAIL--@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+*/
 
 
 
+.projectDetailContainer {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
 
+.projectDetailTitle {
+  font-family: "Outfit", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.projectDetailImageWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.projectDetailImage {
+  max-width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid #1d2129;
+}
+
+.projectDetailBody {
+  color: #cfd1d1;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.projectTechnologies {
+  margin-top: 2rem;
+}
+
+.technologyList {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.technologyBadge {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+}
+
+.projectExternalLink {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.projectExternalLink .btn-primary {
+  background-color: #38b2ac;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.projectExternalLink .btn-primary:hover {
+  background-color: #2d8f85;
+  color: #ffffff;
+}
 
 /* tablets and up  */
 @media (min-width: 768px) {
   .navSocial {
     display: block;
   }
+  .homeRecentExperience{ gap: 4em;}
 }
