@@ -84,6 +84,27 @@ h6 {
   -moz-text-fill-color: transparent;
 }
 
+
+/* Custom scrollbars */
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(
+    45deg,
+    #d78dd2,
+    #b999ee,
+    #9da5e9,
+    #8fa9f0
+  );
+  border-radius: 5px;
+}
+
 a {
   text-decoration: none;
 }
