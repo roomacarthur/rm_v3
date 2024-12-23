@@ -253,6 +253,11 @@ footer a:hover {
   text-decoration: underline;
 }
 
+.footerBaseText {
+  font-size: .6em;
+  margin-bottom: 1em;
+}
+
 /* .homeRecentExperience{ gap: 4em;} */
 
 .experienceTech {
