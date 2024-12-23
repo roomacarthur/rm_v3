@@ -1,6 +1,15 @@
-{% extends 'base.html' %} {% load static %} {% block extraCSS %}
+{% extends 'base.html' %} 
+{% load static %} 
+{% block metaDescription %} {% endblock metaDescription %}
+{% block metaKeywords %} {% endblock metaKeywords %}
+{% block extraCSS %}
 <link rel="stylesheet" href="{% static 'css/timeline.css' %}" />
-{% endblock extraCSS %} {% block content %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+{% endblock extraCSS %} 
+
+{% block content %}
 
 <!--Intro Section -->
 <section class="my-5 container d-flex flex-column align-items-center">
@@ -129,5 +138,117 @@
 </section>
 <section class="container my-5">
     <h1 class="pageTitle text-center">When im not bashing keys...</h1>
+    <div class="row h-auto">
+      <div class="container">
+        <!--Travel-->
+        <h2>I'll be travelling about...</h2>
+        <div class="rounded-2" id="map" style="height: 500px; width: 100%;"></div>
+        <!--Photography-->
+        <h2>Snapping pics...</h2>
+
+        <div class="row g-2">
+          <div class="col-12 topImg">
+            <img class="w-100 topImg topImgPos object-fit-cover rounded-2"src="{% static 'images/mountains.jpg'%}">
+          </div>
+          <div class="col-12 col-sm-6 col-md-4">
+            <img class="w-100 object-fit-cover rounded-2 imgTrio"src="{% static 'images/lake.jpg'%}">
+          </div>
+          <div class="col-12 col-sm-6 col-md-4">
+            <img class="w-100 object-fit-cover rounded-2 imgTrio"src="{% static 'images/alberta.jpg'%}">
+          </div>
+          <div class="col-12 col-sm-6 col-md-4">
+            <img class="w-100 object-fit-cover rounded-2 imgTrio"src="{% static 'images/dam.jpg'%}">
+          </div>
+        </div>
+        <!--Building-->
+        <h2>Or building something... 🔨 🪚 🪓</h2>
+        <div>
+        </div>
+      </div>
+    </div>
 </section>
 {% endblock %}
+
+{% block extraJS %} 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+<script>
+    // Initialize the map with scrollWheelZoom disabled by default
+    var map = L.map('map', {
+        scrollWheelZoom: false // Disable scroll-wheel zoom by default
+    }).setView([36.1408, -5.3536], 2); // Starting view with Gibraltar coords
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Location data
+    var locations = [
+        { "name": "Jersey Island", "lat": 49.2144, "lng": -2.1313 },
+        { "name": "Copenhagen", "lat": 55.6761, "lng": 12.5683 },
+        { "name": "Amsterdam", "lat": 52.3676, "lng": 4.9041 },
+        { "name": "Orlando", "lat": 28.5383, "lng": -81.3792 },
+        { "name": "Tampa", "lat": 27.9506, "lng": -82.4572 },
+        { "name": "Banff", "lat": 51.1784, "lng": -115.5708 },
+        { "name": "Calgary", "lat": 51.0447, "lng": -114.0719 },
+        { "name": "Jasper", "lat": 52.8731, "lng": -118.0806 },
+        { "name": "Vancouver", "lat": 49.2827, "lng": -123.1207 },
+        { "name": "Prague", "lat": 50.0755, "lng": 14.4378 },
+        { "name": "Ballycastle", "lat": 55.2011, "lng": -6.2435 },
+        { "name": "Gibraltar", "lat": 36.1408, "lng": -5.3536 },
+        { "name": "Madrid", "lat": 40.4168, "lng": -3.7038 },
+        { "name": "Barcelona", "lat": 41.3851, "lng": 2.1734 },
+        { "name": "Porto", "lat": 41.1579, "lng": -8.6291 },
+        { "name": "Riga", "lat": 56.9496, "lng": 24.1052 },
+        { "name": "Skye", "lat": 57.5359, "lng": -6.2263 },
+        { "name": "London", "lat": 51.5074, "lng": -0.1278 },
+        { "name": "Dublin", "lat": 53.3498, "lng": -6.2603 },
+        { "name": "Mallorca", "lat": 39.6953, "lng": 3.0176 },
+        { "name": "Key West", "lat": 24.5551, "lng": -81.7800 },
+        { "name": "St Lucia", "lat": 13.9094, "lng": -60.9789 },
+        { "name": "Dominican Republic", "lat": 18.7357, "lng": -70.1627 },
+        { "name": "Kerala", "lat": 10.8505, "lng": 76.2711 },
+        { "name": "Chennai", "lat": 13.0827, "lng": 80.2707 },
+        { "name": "Dubai", "lat": 25.276987, "lng": 55.296249 },
+        { "name": "Toronto", "lat": 43.65107, "lng": -79.347015 }
+    ];
+
+    // Add markers for each location
+    locations.forEach(function(location) {
+        L.marker([location.lat, location.lng])
+         .addTo(map)
+         .bindPopup(`<b>${location.name}</b>`);
+    });
+
+    // Show an instructional message
+    var zoomControl = L.control({ position: 'topright' });
+    zoomControl.onAdd = function () {
+        var div = L.DomUtil.create('div', 'zoom-instruction');
+        div.innerHTML = '<p>Hold <b>Ctrl</b> (or <b>Command</b> on Mac) and scroll to zoom</p>';
+        div.style.backgroundColor = 'white';
+        div.style.padding = '8px';
+        div.style.borderRadius = '4px';
+        div.style.boxShadow = '0 0 6px rgba(0, 0, 0, 0.3)';
+        return div;
+    };
+    zoomControl.addTo(map);
+
+    // Only enable scroll-wheel zoom with Ctrl
+    map.on('keydown', function (event) {
+        if (event.originalEvent.ctrlKey || event.originalEvent.metaKey) {
+            map.scrollWheelZoom.enable();
+        }
+    });
+
+    map.on('keyup', function () {
+        map.scrollWheelZoom.disable();
+    });
+
+    // Disable zoom to ensure smooth scrolling on the rest of the page
+    map.scrollWheelZoom.disable();
+</script>
+
+{% endblock extraJS%}

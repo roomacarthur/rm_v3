@@ -253,7 +253,10 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* .homeRecentExperience{ gap: 4em;} */
+.footerBaseText {
+  font-size: .6em;
+  margin-bottom: 1em;
+}
 
 .experienceTech {
   color: rgb(94 234 212);
@@ -290,6 +293,17 @@ footer a:hover {
   max-width: 500px;
 }
 
+
+.topImg{
+  height: 500px;
+}
+.topImgPos {
+  object-position: center 30%;
+}
+
+.imgTrio{
+  height: 500px;
+}
 /* notes page styles --------------------------------- */
 
 .notesListItem {
