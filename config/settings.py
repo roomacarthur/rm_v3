@@ -36,6 +36,9 @@ ALLOWED_HOSTS = [
     '.railway.app',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://rmv3-production.up.railway.app/',
+]
 
 # Application definition
 
