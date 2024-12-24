@@ -12,3 +12,12 @@ class PostSitemap(Sitemap):
 
     def location(self, obj):
         return reverse('blog:post_detail', args=[str(obj.slug)])  
+
+
+class PostListSitemap(Sitemap):
+    def items(self):
+        # Add any other static paths here if needed
+        return ['post_list']
+
+    def location(self, item):
+        return reverse(f'blog:{item}')

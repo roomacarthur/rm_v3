@@ -3,11 +3,15 @@ from django.urls import path, include
 from django.shortcuts import render
 from django.contrib.sitemaps.views import sitemap
 from django.views.generic import TemplateView
-from blog.sitemaps import PostSitemap  # Import blog app sitemaps
-from portfolio.sitemaps import PortfolioProjectSitemap  # Import portfolio app sitemap
+from blog.sitemaps import PostSitemap, PostListSitemap  # Import blog app sitemaps
+from portfolio.sitemaps import PortfolioProjectSitemap, PortfolioListSitemap  # Import portfolio app sitemap
+from home.sitemaps import StaticViewSitemap  # Import home app sitemap
 
 
 sitemaps = {
+    'home': StaticViewSitemap,
+    'post_list': PostListSitemap,
+    'portfolio_list': PortfolioListSitemap,
     'posts': PostSitemap,
     'portfolio_projects': PortfolioProjectSitemap,
 }
