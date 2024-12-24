@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import render
 from django.contrib.sitemaps.views import sitemap
+from django.views.generic import TemplateView
 from blog.sitemaps import PostSitemap  # Import blog app sitemaps
 from portfolio.sitemaps import PortfolioProjectSitemap  # Import portfolio app sitemap
 
@@ -18,7 +19,10 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('', include('portfolio.urls')),
     path('summernote/', include('django_summernote.urls')),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django-sitemap'),
+    path('sitemap.xml', sitemap, {
+        'sitemaps': sitemaps}, name='django-sitemap'),
+    path('robots.txt', TemplateView.as_view(
+        template_name="robots.txt", content_type='text/plain')),
 ]
 
 
