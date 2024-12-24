@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloudinary_storage',
+    'django.contrib.sitemaps',
     'home',
     'blog',
     'portfolio',
@@ -61,7 +62,6 @@ INSTALLED_APPS = [
     'colorfield',
     'cloudinary',
     'django_summernote',
-    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [
