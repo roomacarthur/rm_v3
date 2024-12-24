@@ -1,0 +1,6 @@
+oythUser-agent: *
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://roomacarthur.dev/sitemap.xml
+Sitemap: https://www.roomacarthur.dev/sitemap.xml

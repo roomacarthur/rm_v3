@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'colorfield',
     'cloudinary',
     'django_summernote',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [

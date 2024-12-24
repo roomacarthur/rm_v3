@@ -14,6 +14,7 @@ class Category(models.Model):
     background_colour = ColorField(default='000000')
     text_color = ColorField(default='ffffff')
     slug = models.SlugField(max_length=100, unique=True)
+    edited = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
