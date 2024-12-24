@@ -34,10 +34,12 @@ DEBUG = env.bool("DEBUG", default=False)
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'rmv3-production.up.railway.app',
+    'roomacarthur.dev'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://rmv3-production.up.railway.app',
+    'https://roomacarthur.dev/'
 ]
 
 # Application definition
