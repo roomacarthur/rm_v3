@@ -39,7 +39,7 @@ ALLOWED_HOSTS = [
 
 CSRF_TRUSTED_ORIGINS = [
     'https://rmv3-production.up.railway.app',
-    'https://roomacarthur.dev/'
+    'https://roomacarthur.dev'
 ]
 
 # Application definition
