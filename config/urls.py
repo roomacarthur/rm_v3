@@ -1,6 +1,16 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import render
+from django.contrib.sitemaps.views import sitemap
+from blog.sitemaps import PostSitemap  # Import blog app sitemaps
+from portfolio.sitemaps import PortfolioProjectSitemap  # Import portfolio app sitemap
+
+
+sitemaps = {
+    'posts': PostSitemap,
+    'portfolio_projects': PortfolioProjectSitemap,
+}
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -8,6 +18,7 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('', include('portfolio.urls')),
     path('summernote/', include('django_summernote.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django-sitemap'),
 ]
 
 
