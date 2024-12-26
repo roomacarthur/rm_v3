@@ -1,4 +1,4 @@
-oythUser-agent: *
+User-agent: *
 Disallow: /admin/
 Disallow: /private/
 
