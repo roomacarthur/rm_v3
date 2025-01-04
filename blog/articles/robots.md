@@ -6,13 +6,13 @@ meta_keywords: ["Django robots.txt", "robots.txt tutorial", "SEO Django", "Djang
 
 # How To: Setting up 'robots.txt' in your Django Project
 
-When building a Django web application, managing how search engines and web crawlers interact with your site is critical for search engine optimization (SEO). One of the simplest ways to control this is through a `robots.txt` file. In this guide, we’ll walk you through setting up `robots.txt` in your Django project step-by-step.
+When building a Django web application, managing how search engines and web crawlers interact with your site is critical for search engine optimization (SEO). One of the simplest ways to control this is through a `robots.txt` file. In this guide, I'll walk you through setting up `robots.txt` in your Django project step-by-step.
 
 ---
 
 ## What is `robots.txt`?
 
-The `robots.txt` file is a plain text file that tells search engine crawlers which parts of your site should or should not be indexed. It’s placed at the root of your website (e.g., `https://roomacarthur.dev/robots.txt`).
+The `robots.txt` file is a plain text file that tells search engine crawlers which parts of your site should or should not be indexed. It’s placed at the root of your website (e.g., `https://roomacarthur.dev/robots.txt`). 
 
 A basic `robots.txt` file might look like this:
 
@@ -23,6 +23,7 @@ Allow: /
 ```
 
 - **`User-agent`** specifies which crawlers the rules apply to (e.g., Googlebot, Bingbot).
+- **`*`** specifies a wildcard, in the above example this relates to all crawlers. 
 - **`Disallow`** specifies paths that crawlers should avoid.
 - **`Allow`** specifies paths that crawlers can access (useful for exceptions within disallowed paths).
 
@@ -34,9 +35,9 @@ Here’s how to add a `robots.txt` file to your Django project:
 
 ### Step 1: Create the `robots.txt` File
 
-Start by creating a `robots.txt` file in your project’s root directory. For example:
+Start by creating a `robots.txt` file in your project’s root template directory. For example:
 
-1. In the root of your Django project (where `manage.py` resides), create a file named `robots.txt`.
+1. In the root of your project you should have a `templates/` directory, in most cases this is where your html file that you extend will be located, I usually call mine `base.html`. 
 
 2. Add the following content to the file:
 
