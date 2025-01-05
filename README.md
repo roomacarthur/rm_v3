@@ -1,13 +1,13 @@
-# rm_v3
+# Personal Portfolio 3.0
+### Ruairidh MacArthur
 
 
-python manage.py loaddata blog/fixtures/category_fixture.json
-python manage.py loaddata blog/fixtures/post_fixture.json
+Built with Django, Heavily customised Bootstrap 5 and deployed on Railway.app. 
 
+# 
 
+### Get in touch: 
 
-TODO:
+[GitHub](https://github.com/roomacarthur)
 
-update media storage to AWS. 
-Add a breadcrumb?
-copy button on code snippets. turns to copied upon copying the snippet. 
+[LinkedIn](https://www.linkedin.com/in/ruairidh-macarthur/)
