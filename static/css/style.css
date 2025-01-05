@@ -63,16 +63,18 @@ h6 {
 
 .pageTitle {
   /* gradient pink to blue text */
-  background-color: red;
+  background-color: #000;
   font-weight: 600;
   /* Create the gradient. */
+  color: #FFF;
   background-image: linear-gradient(
     to right,
-    #d78dd2,
-    #b999ee,
-    #9da5e9,
-    #8fa9f0
+    #f09dea,
+    #c7aef0,
+    #b3b9ed,
+    #9eb4f0
   );
+
 
   /* Set the background size and repeat properties. */
 
@@ -378,6 +380,16 @@ footer a:hover {
 
 /* 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+---------------------------------------------HOME--@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+*/
+
+.homeNotesTitle {
+  color: #fff;
+}
+
+/* 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 ----------------------------------------PORTFOLIO--@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 */
@@ -518,6 +530,17 @@ footer a:hover {
 .projectExternalLink .btn-primary:hover {
   background-color: #2d8f85;
   color: #ffffff;
+}
+
+
+/* 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+----------------------------------LEAFLET MAP CSS--@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+*/
+
+.leaflet-control > p {
+  color: #000;
 }
 
 /* tablets and up  */
