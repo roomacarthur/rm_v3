@@ -164,5 +164,3 @@ Once your sitemap is live, submit its URL (e.g., `https://example.com/sitemap.xm
 
 Adding a sitemap to your Django application is a simple but powerful way to improve your site’s SEO and help search engines better understand your content. With Django’s built-in framework, you can easily generate and serve sitemaps for both static and dynamic content.
 
-For more Django tips and tutorials, explore our [Django Basics Series](#). Have questions? Let us know in the comments!
-
