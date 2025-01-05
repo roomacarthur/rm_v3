@@ -532,6 +532,17 @@ footer a:hover {
   color: #ffffff;
 }
 
+
+/* 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+----------------------------------LEAFLET MAP CSS--@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+*/
+
+.leaflet-control > p {
+  color: #000;
+}
+
 /* tablets and up  */
 @media (min-width: 768px) {
   .navSocial {
