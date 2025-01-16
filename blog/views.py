@@ -38,7 +38,6 @@ class PostListView(ListView):
         context['categories'] = Category.objects.all()
         context['selected_category'] = self.request.GET.get('category', '')
         return context
-        return context
 
 
 class PostDetailView(DetailView):
