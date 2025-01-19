@@ -10,10 +10,6 @@ from markdown.extensions.codehilite import CodeHiliteExtension
 from django.utils.safestring import mark_safe
 
 
-import logging
-logger = logging.getLogger(__name__)
-
-
 class Category(models.Model):
     name = models.CharField(max_length=100)
     background_colour = ColorField(default='000000')
