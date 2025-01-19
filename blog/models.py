@@ -5,8 +5,13 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from colorfield.fields import ColorField
 from cloudinary.models import CloudinaryField
-from markdown import markdown
+import markdown
+from markdown.extensions.codehilite import CodeHiliteExtension
 from django.utils.safestring import mark_safe
+
+
+import logging
+logger = logging.getLogger(__name__)
 
 
 class Category(models.Model):
@@ -42,8 +47,15 @@ class Post(models.Model):
         ordering = ['-created']
 
     def render_markdown(self):
-        extensions = ['fenced_code', 'codehilite', 'tables', 'attr_list',]
-        return mark_safe(markdown(self.content, extensions=extensions))
+        extensions = [
+            'fenced_code',  # Enables fenced code blocks
+            CodeHiliteExtension(linenums=False),  # Enables Pygments highlighting
+            'tables',
+            'attr_list',
+        ]
+        # Process Markdown content
+        html_content = markdown.markdown(self.content, extensions=extensions, output_format="html5")
+        return mark_safe(html_content)
 
     def __str__(self):
         return self.title

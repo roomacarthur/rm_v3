@@ -5,8 +5,12 @@
 {% block metaKeywords %}{{post.meta_keywords}}{% endblock metaKeywords %}
 
 {% block extraCSS %} 
+{% comment %} <link rel="stylesheet" href="{% static 'css/code_snippets.css' %}"> {% endcomment %}
 <link rel="stylesheet" href="{% static 'css/code_snippets.css' %}">
+
 {% endblock extraCSS %}
+
+
 {% block content %}
 <div class="row mt-4">
     <!-- Sidebar -->
@@ -66,16 +70,7 @@
                 {% endfor %}
             </div>
             {{ rendered_content|safe }}
-        </article>
+        </article>  
     </div>
 </div>
 {% endblock content %}
-
-{% block extraJS %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        hljs.highlightAll();
-    });
-</script>
-{% endblock extraJS %}

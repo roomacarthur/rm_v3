@@ -1,100 +1,139 @@
-pre code.hljs {
+/* Base styling for code blocks */
+pre {
+  display: block;
+  overflow-x: auto;
+  border-radius: 5px;
+  background: #1c1e26; /* Halcyon background */
+  color: #e0e6f0; /* Primary text color */
+  line-height: 125%;
+}
+
+pre code {
   display: block;
   overflow-x: auto;
   padding: 1em;
   border-radius: 5px;
   background: #1c1e26; /* Halcyon background */
-  color: #e0e6f0 !important; /* Primary text color */
-}
-code{
-    color: #c792ea;
-    background-color: #1c1e26;
-    padding: 1px 4px;
-    border-radius: 3px;
-    border: 1px solid #535353;
+  color: #e0e6f0; /* Primary text color */
 }
 
-
-code.hljs {
-  padding: 3px 5px;
+/* Inline code */
+code {
+  color: #c792ea; /* Purple for inline code */
+  background-color: #1c1e26; /* Background matches pre */
+  padding: 1px 4px;
+  border-radius: 3px;
+  border: 1px solid #535353; /* Subtle border for inline code */
 }
 
-/* General styling */
-.hljs {
+/* Highlighted line */
+.codehilite .hll {
+  background-color: rgba(76, 175, 80, 0.2); /* Soft green highlight */
+}
+
+/* Code container */
+.codehilite {
   background: #1c1e26;
-  color: #e0e6f0;
 }
 
 /* Comments */
-.hljs-comment,
-.hljs-quote {
-  color: #6a6f7e; /* Comment grey */
+.codehilite .c,
+.codehilite .ch,
+.codehilite .cm,
+.codehilite .cpf,
+.codehilite .c1,
+.codehilite .cs {
+  color: #6a6f7e; /* Grey for comments */
   font-style: italic;
 }
 
 /* Keywords, attributes, and important language elements */
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-name,
-.hljs-built_in {
+.codehilite .k,
+.codehilite .kc,
+.codehilite .kd,
+.codehilite .kn,
+.codehilite .kp,
+.codehilite .kr,
+.codehilite .nt {
   color: #c792ea; /* Purple for keywords */
+  font-weight: bold;
 }
 
-/* Strings, numbers, variables */
-.hljs-string,
-.hljs-number,
-.hljs-title,
-.hljs-attribute,
-.hljs-symbol,
-.hljs-template-variable {
-  color: #8df071; /* Pink/Red */
+/* Strings, numbers, and literals */
+.codehilite .s,
+.codehilite .se,
+.codehilite .sb,
+.codehilite .sc,
+.codehilite .sd,
+.codehilite .s2,
+.codehilite .sh,
+.codehilite .si,
+.codehilite .sx,
+.codehilite .sr,
+.codehilite .s1,
+.codehilite .ss,
+.codehilite .m,
+.codehilite .mb,
+.codehilite .mf,
+.codehilite .mh,
+.codehilite .mi,
+.codehilite .mo {
+  color: #8df071; /* Green for strings and numbers */
 }
 
-/* Functions, class names */
-.hljs-function .hljs-title,
-.hljs-title.class_,
-.hljs-title.function_,
-.hljs-class .hljs-title {
+/* Functions and class names */
+.codehilite .nf,
+.codehilite .nc,
+.codehilite .nn,
+.codehilite .fm,
+.codehilite .vc,
+.codehilite .vg,
+.codehilite .vi {
   color: #82aaff; /* Blue for functions and classes */
+  font-weight: bold;
 }
 
 /* Operators, punctuation, and tags */
-.hljs-operator,
-.hljs-tag,
-.hljs-punctuation {
-  color: #89ddff; /* Cyan for punctuation */
+.codehilite .o,
+.codehilite .ow,
+.codehilite .nt,
+.codehilite .p {
+  color: #89ddff; /* Cyan for operators and punctuation */
 }
 
-/* Constants, booleans */
-.hljs-constant,
-.hljs-literal {
+/* Constants and booleans */
+.codehilite .no,
+.codehilite .nb,
+.codehilite .ni,
+.codehilite .ne,
+.codehilite .nl,
+.codehilite .nv,
+.codehilite .bp {
   color: #ffcb6b; /* Gold for constants and booleans */
 }
 
-/* Variables, parameters, property names */
-.hljs-variable,
-.hljs-params,
-.hljs-property {
-  color: #f78c6c; /* Orange for variables */
+/* Variables and properties */
+.codehilite .nv,
+.codehilite .params {
+  color: #f78c6c; /* Orange for variables and parameters */
 }
 
-/* Addition and deletion (for diffs) */
-.hljs-addition {
-  color: #c3e88d; /* Green */
+/* Additions and deletions */
+.codehilite .gi {
+  color: #c3e88d; /* Green for additions */
   background-color: rgba(76, 175, 80, 0.1);
 }
-.hljs-deletion {
-  color: #ff5370; /* Red */
+.codehilite .gd {
+  color: #ff5370; /* Red for deletions */
   background-color: rgba(244, 67, 54, 0.1);
 }
 
-/* Emphasis and strong */
-.hljs-emphasis {
+/* Emphasis and strong text */
+.codehilite .ge {
   font-style: italic;
   color: #c792ea;
 }
-.hljs-strong {
+.codehilite .gs {
   font-weight: bold;
   color: #f78c6c;
 }
