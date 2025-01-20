@@ -540,6 +540,14 @@ footer a:hover {
   color: #ffffff;
 }
 
+.related-link{
+  color: #78f6dd; 
+}
+
+.related-link:hover{
+  text-decoration: underline;
+}
+
 
 /* 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
