@@ -23,7 +23,7 @@ class PortfolioDetailView(DetailView):
         obj = super().get_object(queryset)
         
         # Check if the project is completed
-        if not obj.is_completed:
+        if not obj.is_complete:
             # Option 1: Redirect to the list view
             return redirect(reverse('portfolio:portfolio'))  # Redirect to the portfolio list view
 
