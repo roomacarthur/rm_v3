@@ -24,10 +24,5 @@ class PortfolioDetailView(DetailView):
         
         # Check if the project is completed
         if not obj.is_complete:
-            # Option 1: Redirect to the list view
             return redirect(reverse('portfolio:portfolio'))  # Redirect to the portfolio list view
-
-            # Option 2: Raise a 404 error if the project isn't completed
-            # raise Http404("Project not found or is not completed.")
-        
         return obj
