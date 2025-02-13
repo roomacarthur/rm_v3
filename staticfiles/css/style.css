@@ -268,11 +268,18 @@ footer a:hover {
   color: rgb(94 234 212);
   font-size: 0.7em;
 }
+.introImgContainer {
+  height: 310px;
+  width: 310px;
+  border-radius: 41% 59% 71% 29% / 74% 33% 67% 26% ;
+  background-color: rgb(185, 235, 255);
+}
 
 .introImg {
   height: 300px;
   width: 300px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
+  border-radius: 71% 29% 19% 81% / 55% 68% 32% 45%;
 }
 
 .homeCard {
