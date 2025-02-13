@@ -33,4 +33,6 @@ class HomeTests(TestCase):
         """Test that the home view does not contain incorrect HTML."""
         url = reverse('home:home')
         response = self.client.get(url)
-        self.assertNotContains(response, 'Hi there! I should not be on the page.')
+        self.assertNotContains(
+            response, 'Hi there! I should not be on the page.'
+        )
