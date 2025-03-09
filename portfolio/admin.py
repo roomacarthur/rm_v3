@@ -19,7 +19,7 @@ class PortfolioProjectAdmin(admin.ModelAdmin):
     readonly_fields = ('created_at', 'updated_at')
     fieldsets = (
         (None, {
-            'fields': ('title', 'slug', 'short_description', 'content', 'feature_image', 'project_url')
+            'fields': ('title', 'slug', 'short_description', 'content', 'feature_image', 'project_url', 'repo_url')
         }),
         ('Technologies', {
             'fields': ('technologies',)
