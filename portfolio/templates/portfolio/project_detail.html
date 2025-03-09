@@ -11,11 +11,17 @@
             {{ project.title }}
         </h1>
 
-                {% if project.project_url %}
+            {% if project.project_url or project.repo_url %}
             <div class="projectExternalLink">
+                {% if project.project_url %}
                 <a href="{{ project.project_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Live Project</a>
+                {% endif %}
+                {% if project.repo_url %}
+                <a href="{{ project.repo_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Github Repository</a>
+                {% endif %}
             </div>
-        {% endif %}
+            {% endif %}
+            
         <div class="projectTechnologies">
             <h3>Technologies Used:</h3>
             <ul class="technologyList">
