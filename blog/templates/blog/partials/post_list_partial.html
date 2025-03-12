@@ -1,18 +1,26 @@
 {% for post in posts %}
+  {% if forloop.last and page_obj.has_next %}
+    <div class="notesListItem"
+         hx-get="{% url 'blog:post_list' %}?page={{ page_obj.number|add:1 }}"
+         hx-trigger="revealed"
+         hx-target="this"
+         hx-swap="afterend">
+  {% else %}
+    <div class="notesListItem">
+  {% endif %}
 
-{% if forloop.last %}
-<div class="notesListItem" hx-get="{% url 'blog:post_list' %}?page={{ page_obj.number|add:1 }}" hx-trigger="revealed" hx-target="this" hx-swap="afterend"> 
-{% else %}
-  <div class="notesListItem">
-{% endif %}
-    <span class="badge rounded-pill articleTag"
-          style="background-color: {{ post.category.background_colour }}; color: {{ post.category.text_color }}">
-      {{ post.category.name }}
-    </span>
-    <h2 class="postListTitle"><a href="{{ post.get_absolute_url }}" class="link-unstyled postLink">{{ post.title }}</a></h2>
-    <div class="d-flex align-items-center justify-content-between">
-      <small class="">By {{post.author }}</small>
-      <small>{{ post.created|date:"M d, y" }}</small>
-    </div>
+  <span class="badge rounded-pill articleTag"
+        style="background-color: {{ post.category.background_colour }}; color: {{ post.category.text_color }}">
+    {{ post.category.name }}
+  </span>
+
+  <h2 class="postListTitle">
+    <a href="{{ post.get_absolute_url }}" class="link-unstyled postLink">{{ post.title }}</a>
+  </h2>
+
+  <div class="d-flex align-items-center justify-content-between">
+    <small>By {{ post.author.username }}</small>
+    <small>{{ post.created|date:"M d, y" }}</small>
   </div>
+</div>
 {% endfor %}
