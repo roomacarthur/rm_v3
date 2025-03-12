@@ -1,42 +1,48 @@
 from django.views.generic import ListView, DetailView
-from .models import Post, Category
 from django.db.models import Q
+from django.core.cache import cache
+
+from .models import Post, Category
 
 
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/post_list.html'
-    context_object_name = 'posts'
+    template_name = "blog/post_list.html"
+    context_object_name = "posts"
     paginate_by = 5
 
     def get_queryset(self):
-        queryset = Post.objects.all()
-        category_slug = self.request.GET.get('category')
-        search_query = self.request.GET.get('search')
-
-        # Filter by category
-        if category_slug:
-            queryset = queryset.filter(category__slug=category_slug)
-
-        # Search filter
-        if search_query:
-            queryset = queryset.filter(
-                Q(title__icontains=search_query) |
-                Q(hashtags__icontains=search_query) |
-                Q(category__name__icontains=search_query)
-            ).distinct()
-
+        queryset = (
+            Post.objects
+            .select_related("category", "author")
+            .only(
+                "id", "title", "slug", "feature_image", "excerpt",
+                "created", "category__name", "category__background_colour", "category__text_color",
+                "author__username"
+            )
+            .order_by("-created")
+        )
         return queryset
 
-    def get_template_names(self):
-        if self.request.htmx:
-            return 'blog/partials/post_list_partial.html'
-        return 'blog/post_list.html'
-    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categories'] = Category.objects.all()
-        context['selected_category'] = self.request.GET.get('category', '')
+
+        post_count = cache.get("blog_post_count")
+        if post_count is None:
+            post_count = Post.objects.count()
+            cache.set("blog_post_count", post_count, timeout=86400)  # Cache for 24 hours
+
+        context["post_count"] = post_count
+
+        categories = cache.get("blog_categories")
+        if categories is None:
+            categories = list(Category.objects.only("name", "slug", "background_colour", "text_color"))
+            cache.set("blog_categories", categories, timeout=86400)  # Cache for 24 hours
+
+        # Include categories on initial request, not infinite scroll.
+        if not self.request.htmx:
+            context["categories"] = categories
+
         return context
 
 
@@ -51,7 +57,7 @@ class PostDetailView(DetailView):
         context['rendered_content'] = post.render_markdown()  # rendered MD HTML
 
         if post.hashtags:
-            hashtags = post.hashtags.split(',')  # Split by commas
+            hashtags = post.hashtags.split(',')
             formatted_hashtags = [f"#{tag.strip().lower()}" for tag in hashtags]  # Format hashtags
             context['formatted_hashtags'] = formatted_hashtags
 
