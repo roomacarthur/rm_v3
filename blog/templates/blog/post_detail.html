@@ -4,7 +4,7 @@
 {% block metaDescription %}{{post.meta_description}}{% endblock metaDescription %}
 {% block metaKeywords %}{{post.meta_keywords}}{% endblock metaKeywords %}
 
-{% block extraCSS %} 
+{% block extraCSS %}
 {% comment %} <link rel="stylesheet" href="{% static 'css/code_snippets.css' %}"> {% endcomment %}
 <link rel="stylesheet" href="{% static 'css/code_snippets.css' %}">
 
@@ -37,7 +37,7 @@
                 <h4>Related Posts</h4>
                 <ul class="list-unstyled">
                     {% for related_post in related_posts %}
-                    <li>
+                    <li class="mb-2">
                         <a href="{{ related_post.get_absolute_url }}" class="link-offset-3-hover related-link">
                             {{ related_post.title }}<br>
                             <small class="">{{ related_post.created|date:"M d, Y" }}</small>
@@ -70,8 +70,8 @@
                 {% endfor %}
             </div>
             {{ rendered_content|safe }}
-        </article>  
+        </article>
     </div>
-    
+
 </div>
 {% endblock content %}
