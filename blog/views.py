@@ -45,25 +45,35 @@ class PostListView(ListView):
 
         return context
 
-
 class PostDetailView(DetailView):
     model = Post
-    template_name = 'blog/post_detail.html'
-    context_object_name = 'post'
+    template_name = "blog/post_detail.html"
+    context_object_name = "post"
+
+    def get_object(self):
+        """ Fetch the post once, avoiding duplicate queries. """
+        if not hasattr(self, "_post"):
+            self._post = Post.objects.select_related("category", "author").get(slug=self.kwargs["slug"])
+        return self._post
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
         post = self.get_object()
-        context['rendered_content'] = post.render_markdown()  # rendered MD HTML
+        context["post"] = post
+        context["rendered_content"] = post.render_markdown()
 
         if post.hashtags:
-            hashtags = post.hashtags.split(',')
-            formatted_hashtags = [f"#{tag.strip().lower()}" for tag in hashtags]  # Format hashtags
-            context['formatted_hashtags'] = formatted_hashtags
+            context["formatted_hashtags"] = [
+                f"#{tag.strip().lower()}" for tag in post.hashtags.split(",")
+            ]
 
-        # Related posts based on category (excluding the current post)
-        context['related_posts'] = Post.objects.filter(
-            category=post.category
-        ).exclude(id=post.id)[:5]
+        context["related_posts"] = (
+            Post.objects
+            .select_related("category")
+            .only("id", "title", "slug", "created", "category__name")
+            .filter(category=post.category)
+            .exclude(id=post.id)[:5]
+        )
 
         return context

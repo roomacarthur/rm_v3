@@ -4,7 +4,7 @@
 {% block metaDescription %}{{post.meta_description}}{% endblock metaDescription %}
 {% block metaKeywords %}{{post.meta_keywords}}{% endblock metaKeywords %}
 
-{% block extraCSS %} 
+{% block extraCSS %}
 {% comment %} <link rel="stylesheet" href="{% static 'css/code_snippets.css' %}"> {% endcomment %}
 <link rel="stylesheet" href="{% static 'css/code_snippets.css' %}">
 
@@ -70,8 +70,8 @@
                 {% endfor %}
             </div>
             {{ rendered_content|safe }}
-        </article>  
+        </article>
     </div>
-    
+
 </div>
 {% endblock content %}
