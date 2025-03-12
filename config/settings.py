@@ -64,6 +64,9 @@ INSTALLED_APPS = [
     'django_summernote',
 ]
 
+INTERNAL_IPS = ['127.0.0.1']
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -75,6 +78,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+if DEBUG:  # Debug toolbar should only be active in debug mode
+    INSTALLED_APPS += ["debug_toolbar"]
+    MIDDLEWARE.insert(0, "debug_toolbar.middleware.DebugToolbarMiddleware")  # Ensures it's first in middleware
 
 ROOT_URLCONF = 'config.urls'
 

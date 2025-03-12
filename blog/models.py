@@ -1,13 +1,14 @@
+import markdown
 from datetime import timezone
+from markdown.extensions.codehilite import CodeHiliteExtension
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
 from django.contrib.auth.models import User
 from colorfield.fields import ColorField
 from cloudinary.models import CloudinaryField
-import markdown
-from markdown.extensions.codehilite import CodeHiliteExtension
 from django.utils.safestring import mark_safe
+from django.core.cache import cache
 
 
 class Category(models.Model):
@@ -22,6 +23,10 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:category_detail', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        cache.delete('blog_categories')  # clear cache when new category is added.
 
 
 class Post(models.Model):
