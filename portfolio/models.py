@@ -41,6 +41,7 @@ class PortfolioProject(models.Model):
     meta_description = models.TextField(max_length=160)
     meta_keywords = models.CharField(max_length=255, help_text="Comma-separated SEO keywords")
     project_url = models.URLField(max_length=500, blank=True, null=True)
+    repo_url = models.URLField(max_length=500, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_complete = models.BooleanField(default=False)
