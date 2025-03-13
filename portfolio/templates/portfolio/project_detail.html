@@ -1,4 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block metaTitle %} - {{ project.title }}{% endblock metaTitle %}
+{% block metaDescription %}{{ project.meta_description }}{% endblock metaDescription %}
+
+{% block ogTitle %}{{ project.title }} - A Project by Roo MacArthur{% endblock ogTitle %}
+{% block ogDescription %}{{ project.short_description }}{% endblock ogDescription %}
+{% block ogType %}article{% endblock ogType %}
+{% block ogImage %}{% if project.feature_image %}{{ project.feature_image.url }}{% else %}{{ request.build_absolute_uri }}{% static 'images/portfolio_cover.png' %}{% endif %}{% endblock ogImage %}
+
+{% block twitterTitle %}{{ project.title }} - A Project by Roo MacArthur{% endblock twitterTitle %}
+{% block twitterDescription %}{{ project.short_description }}{% endblock twitterDescription %}
+{% block twitterImage %}{% if project.feature_image %}{{ project.feature_image.url }}{% else %}{{ request.build_absolute_uri }}{% static 'images/portfolio_cover.png' %}{% endif %}{% endblock twitterImage %}
 
 {% block content %}
     <div class="container p-4 projectDetailContainer">

@@ -1,7 +1,18 @@
-{% extends 'base.html' %} 
-{% block metaTitle %} - Work {% endblock metaTitle %}
+{% extends 'base.html' %}
+{% load static %}
+{% block metaTitle %} - Work{% endblock metaTitle %}
 {% block metaDescription %}Showcasing a collection of my completed and upcoming projects. Explore my work and see what I'm building next!{% endblock metaDescription %}
-{% block metaKeywords %}portfolio, projects, web development, django, upcoming projects, complete projects{% endblock metaKeywords %}
+{% block metaKeywords %}portfolio, projects, web development, django, react, python{% endblock metaKeywords %}
+
+{% block ogTitle %}Roo MacArthur - Full Stack Projects{% endblock ogTitle %}
+{% block ogDescription %}Check out my latest work in Django, React, and modern web development.{% endblock ogDescription %}
+{% block ogImage %}{{ request.build_absolute_uri }}{% static 'images/roo_pink_hs.png' %}{% endblock ogImage %}
+
+{% block twitterTitle %}Roo MacArthur - Full Stack Projects{% endblock twitterTitle %}
+{% block twitterDescription %}Check out my latest work in Django, React, and modern web development.{% endblock twitterDescription %}
+{% block twitterImage %}{{ request.build_absolute_uri }}{% static 'images/roo_pink_hs.png' %}{% endblock twitterImage %}
+
+
 {% block content %}
     <h1 class="text-center pageTitle mb-4">Take a look at my work</h1>
     <div class="container">

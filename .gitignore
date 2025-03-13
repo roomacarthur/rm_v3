@@ -6,3 +6,5 @@ env.py
 __pycache__/
 
 blog/imgages/*
+
+staticfiles/debug_toolbar/
