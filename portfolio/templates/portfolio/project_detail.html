@@ -25,7 +25,7 @@
         <div class="projectTechnologies">
             <h3>Technologies Used:</h3>
             <ul class="technologyList">
-                {% for tech in project.technologies.all %}
+                {% for tech in technologies %}
                     <li class="technologyBadge badge" style="background-color: {{ tech.background_colour }}; color: {{ tech.text_color }};">
                         {{ tech.name }}
                     </li>
