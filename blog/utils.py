@@ -1,10 +1,12 @@
-# blog/utils.py
-
 from django.core.paginator import Paginator
 from django.core.cache import cache
 
+
 class CachedPaginator(Paginator):
-    """Custom paginator that forces Django to use cached count instead of running COUNT(*)"""
+    """
+    Custom paginator that forces Django to use cached
+    count instead of running COUNT(*)
+    """
     def __init__(self, object_list, per_page, cache_key, **kwargs):
         super().__init__(object_list, per_page, **kwargs)
         self.cache_key = cache_key
