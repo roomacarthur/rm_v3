@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from django.core.cache import cache
 from cloudinary.models import CloudinaryField
 from colorfield.fields import ColorField
 from markdown import markdown
@@ -53,9 +54,14 @@ class PortfolioProject(models.Model):
         verbose_name_plural = "Portfolio Projects"
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
+        """Update cache when a project is added or edited."""
         super().save(*args, **kwargs)
+        cache.set("portfolio_project_count", PortfolioProject.objects.count())
+
+    def delete(self, *args, **kwargs):
+        """Update cache when a project is deleted."""
+        super().delete(*args, **kwargs)
+        cache.set("portfolio_project_count", PortfolioProject.objects.count())
 
     def get_absolute_url(self):
         return reverse('portfolio:project_detail', kwargs={'slug': self.slug})
