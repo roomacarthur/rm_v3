@@ -5,11 +5,10 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Deployed on Railway](https://img.shields.io/badge/Deployed%20on-Railway-blue.svg)](https://railway.com?referralCode=roomacarthur)
 
-[![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen.svg)](https://github.com/roomacarthur/rm_v3/actions)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple.svg)](https://getbootstrap.com/)
 
 
-Welcome to **RM_v3**, a modern portfolio website and blog built with Django that showcases my projects, skills, and the work I’m passionate about. This project highlights a range of web development skills—from dynamic content rendering using Markdown to leveraging modern tools like HTMX for an enhanced user experience.
+Welcome to **RM_v3**, my modern portfolio website and blog built with Django that showcases my projects, skills, and the work I’m passionate about. This project highlights a range of web development skills—from dynamic content rendering using Markdown to leveraging modern tools like HTMX for an enhanced user experience.
 
 ## Table of Contents
 
@@ -62,15 +61,15 @@ Welcome to **RM_v3**, a modern portfolio website and blog built with Django that
 ## Tech Stack
 
 - **Backend**: [Django](https://www.djangoproject.com/) (Python)
-- **Frontend**: HTML5, CSS3, Bootstrap (or your custom styles)
+- **Frontend**: HTML5, CSS3, Bootstrap
 - **Templating**: Django Templates, with HTMX for dynamic content updates
-- **Database**: SQLite (by default) — easily switchable to PostgreSQL or another RDBMS
+- **Database**: SQLite for testing and development, PostgreSQL for production.
 - **Media**: [Cloudinary](https://cloudinary.com/) for image management
 - **Markdown Processing**: [Markdown](https://python-markdown.github.io/) with extensions for code highlighting and tables
 
 ## Live Demo
 
-Check out the live demo of the portfolio site here: [Your Live URL Here](https://www.roomacarthur.dev/)
+Check out the live demo of the portfolio site here: [https://www.roomacarthur.dev](https://www.roomacarthur.dev/)
 
 ## Installation
 
