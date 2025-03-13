@@ -17,7 +17,7 @@
     <div class="container p-4 projectDetailContainer">
                 {% if project.feature_image %}
             <div class="projectDetailImageWrapper">
-                <img src="{{ project.feature_image.url }}" alt="{{ project.title }}" class="projectDetailImage">
+                <img src="{{ project.feature_image.url }}" loading="lazy" alt="{{ project.title }}" class="projectDetailImage">
             </div>
         {% endif %}
         <h1 class="projectDetailTitle" style="background-image: linear-gradient(45deg, {{ project.background_colour }}, {{ project.text_color }});">

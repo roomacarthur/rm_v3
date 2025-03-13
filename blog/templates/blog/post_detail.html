@@ -65,7 +65,7 @@
     <div class="col-md-8 order-1 order-md-2">
         <article class="blog-post">
             {% if post.feature_image %}
-            <img src="{{ post.feature_image.url }}" alt="{{ post.alt_text }}" class="mb-3 w-100 mx-auto object-fit-cover rounded-2" />
+            <img src="{{ post.feature_image.url }}" loading="lazy" alt="{{ post.alt_text }}" class="mb-3 w-100 mx-auto object-fit-cover rounded-2" />
             {% endif %}
             <h1 class="my-2">{{ post.title }}</h1>
             <p>
