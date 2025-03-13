@@ -1,10 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
 /* css variables */
 :root {
   --bg-dark: rgb(19, 23, 31);
+  --bg-dark-alt: #161922;
+  --light-color: #cfd1d1;
+  --primary-color: #78f6dd;
+  --accent-color: #b3b9ed;
+  --font-body: "Roboto", sans-serif;
+  --font-heading: "Outfit", sans-serif;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -14,32 +20,24 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  /* background-color: #1f1f1f; */
-  background-color: rgb(19, 23, 31);
-  color: #cfd1d1;
-  font-family: "Roboto", sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--light-color);
+  font-family: var(--font-body);
   font-size: 16px;
 }
 
 header {
-  /* background: rgba(29, 38, 56, 0.829); */
-  font-family: "Outfit", sans-serif;
+  font-family: var(--font-heading);
   backdrop-filter: blur(2px);
   position: relative;
-  /* margin-top: 10px;
-  padding: 10px; */
   z-index: 4;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Outfit", sans-serif;
-  margin: 1em 0 0.5em 0;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin-bottom: 0.5em;
   letter-spacing: 1px;
+  font-weight: 600;
 }
 h1 {
   font-size: 2.5em;
@@ -145,7 +143,7 @@ a {
 .navLinksContainer {
   gap: 5px;
   border: 1px solid #535353;
-  background-color: rgb(19, 23, 31);
+  background-color: var(--bg-dark);
   backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 5px;
@@ -201,7 +199,7 @@ a {
 } */
 .navSocialContainer {
   border: 1px solid #535353;
-  background-color: rgb(19, 23, 31);
+  background-color: var(--bg-dark);
   backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 5px;
@@ -235,7 +233,7 @@ a {
 }
 
 .socialAtDropdown {
-  background-color: rgb(19, 23, 31);
+  background-color: var(--bg-dark);
   border: 1px solid #535353;
   border-radius: 12px;
   padding-top: 14px;
@@ -252,7 +250,7 @@ footer a {
   color: #fff;
   text-decoration: none;
   letter-spacing: 1px;
-  font-family: "Outfit", sans-serif;
+  font-family: var(--font-heading);
 }
 
 footer a:hover {
@@ -354,7 +352,7 @@ footer a:hover {
 }
 
 .postLink {
-  color: #cfd1d1;
+  color: var(--light-color);
   letter-spacing: 1px;
 }
 .postLink:hover {
@@ -381,12 +379,12 @@ footer a:hover {
 .shareX:hover,
 .shareLinkedin:hover,
 .shareReddit:hover {
-  color: #cfd1d1;
+  color: var(--light-color);
 }
 
 .blog-post-meta {
   font-size: 0.8rem;
-  color: #cfd1d1;
+  color: var(--light-color);
 }
 
 /* 
@@ -421,14 +419,14 @@ footer a:hover {
 }
 
 .portfolioItemBody {
-  color: #cfd1d1;
+  color: var(--light-color);
 }
 
 .portfolioItemTitle {
-  font-family: "Outfit", sans-serif;
+  font-family: var(--font-heading);
   font-size: 1.5em;
   font-weight: 600;
-  color: #cfd1d1;
+  color: var(--light-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
@@ -476,7 +474,7 @@ footer a:hover {
 }
 
 .projectDetailTitle {
-  font-family: "Outfit", sans-serif;
+  font-family: var(--font-heading);
   font-size: 2.5rem;
   font-weight: 600;
   text-align: center;
@@ -502,7 +500,7 @@ footer a:hover {
 }
 
 .projectDetailBody {
-  color: #cfd1d1;
+  color: var(--light-color);
   font-size: 1rem;
   line-height: 1.6;
 }
