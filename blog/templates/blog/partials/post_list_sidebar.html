@@ -9,9 +9,10 @@
     hx-get="{% url 'blog:post_list' %}"
     hx-target="#posts-container" 
     hx-trigger="keyup changed delay:500ms"
-    hx-on="htmx:afterRequest: history.replaceState(null, '', '{% url 'blog:post_list' %}');"
     hx-push-url="true"
+    hx-indicator=".htmx-indicator"
     class="form-control"
+    hx-vals='js:{"category": new URLSearchParams(window.location.search).get("category") || ""}'
   />
 </div>
 
@@ -24,7 +25,6 @@
         hx-get="{% url 'blog:post_list' %}"
         hx-target="#posts-container"
         hx-trigger="click"
-        hx-on="htmx:afterRequest: history.replaceState(null, '', '{% url 'blog:post_list' %}');"
         hx-push-url="true"
         class="badge rounded-pill m-1 allPostsCategory">
         All Posts
@@ -37,7 +37,6 @@
           hx-get="{% url 'blog:post_list' %}?category={{ category.slug }}"
           hx-target="#posts-container"
           hx-trigger="click"
-          hx-on="htmx:afterRequest: history.replaceState(null, '', '{% url 'blog:post_list' %}');"
           hx-push-url="true"
           class="badge rounded-pill m-1 list-unstyled categoryListBadge">
           {{ category.name }}

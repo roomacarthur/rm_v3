@@ -10,29 +10,42 @@ class PostListView(ListView):
     model = Post
     template_name = "blog/post_list.html"
     context_object_name = "posts"
-    paginate_by = 5
+    paginate_by = 3
 
     def get_queryset(self):
-        """Optimize query by preloading category and author details."""
+        """Ensure category & search filters work together properly."""
         queryset = (
             Post.objects
             .select_related("category", "author")
             .only(
                 "id", "title", "slug", "feature_image", "excerpt",
                 "created", "category__name", "category__background_colour",
-                "category__text_color",
-                "author__username"
+                "category__text_color", "author__username"
             )
             .order_by("-created")
         )
+
+        # Ensure category & search filters work together properly
+        category_slug = self.request.GET.get("category")
+        search_query = self.request.GET.get("search")
+
+        if category_slug and search_query:
+            queryset = queryset.filter(
+                category__slug=category_slug,
+                title__icontains=search_query
+            )
+        elif category_slug:
+            queryset = queryset.filter(category__slug=category_slug)
+        elif search_query:
+            queryset = queryset.filter(title__icontains=search_query)
+
         return queryset
 
     def get_paginator(
-            self, queryset, per_page, orphans=0, allow_empty_first_page=True
-    ):
+            self, queryset, per_page, orphans=0, allow_empty_first_page=True):
         """
-        Override Django's paginator to use cached
-        post count instead of COUNT(*)
+        Override Django's paginator to use cached post count instead of
+        COUNT(*)
         """
         return CachedPaginator(
             queryset, per_page, cache_key="blog_post_count",
@@ -40,6 +53,7 @@ class PostListView(ListView):
         )
 
     def get_context_data(self, **kwargs):
+        """Optimize context data by caching post count and categories."""
         context = super().get_context_data(**kwargs)
 
         # Fetch cached post count
@@ -47,20 +61,26 @@ class PostListView(ListView):
         if post_count is None:
             post_count = Post.objects.count()
             cache.set("blog_post_count", post_count, timeout=86400)  # 24 hours
-
         context["post_count"] = post_count
 
+        # Fetch cached categories
         categories = cache.get("blog_categories")
         if categories is None:
             categories = list(
                 Category.objects.only(
-                    "name", "slug", "background_colour", "text_color"))
+                    "name", "slug", "background_colour", "text_color"
+                )
+            )
             cache.set("blog_categories", categories, timeout=86400)  # 24 hours
-
-        if not self.request.htmx:
-            context["categories"] = categories
+        context["categories"] = categories
 
         return context
+
+    def get_template_names(self):
+        """Return partial template for HTMX requests."""
+        if self.request.htmx:
+            return ["blog/partials/post_list_partial.html"]
+        return ["blog/post_list.html"]
 
 
 class PostDetailView(DetailView):
