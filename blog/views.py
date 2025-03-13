@@ -10,7 +10,7 @@ class PostListView(ListView):
     model = Post
     template_name = "blog/post_list.html"
     context_object_name = "posts"
-    paginate_by = 3
+    paginate_by = 5
 
     def get_queryset(self):
         """Ensure category & search filters work together properly."""
