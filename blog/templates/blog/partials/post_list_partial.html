@@ -17,10 +17,11 @@
 {% endfor %}
 
 {% if page_obj.has_next %}
-  <div hx-get="{% url 'blog:post_list' %}?page={{ page_obj.number|add:1 }}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}"
-       hx-trigger="revealed"
-       hx-target="this"
-       hx-swap="afterend"
-       class="infinite-scroll-trigger">
+  <div 
+    hx-get="{% url 'blog:post_list' %}?page={{ page_obj.next_page_number }}"
+    hx-trigger="revealed"
+    hx-target="this"
+    hx-swap="afterend"
+    class="infinite-scroll-trigger">
   </div>
 {% endif %}
