@@ -387,6 +387,11 @@ footer a:hover {
   color: var(--light-color);
 }
 
+#infinite-spinner.htmx-request {
+  display: inline-block !important;
+}
+
+
 /* 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 ---------------------------------------------HOME--@

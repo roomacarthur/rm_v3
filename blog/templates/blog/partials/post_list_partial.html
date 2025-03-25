@@ -17,11 +17,24 @@
 {% endfor %}
 
 {% if page_obj.has_next %}
+  <div class="text-center my-4">
+    <div 
+      id="infinite-spinner"
+      class="spinner-border text-primary"
+      role="status"
+      style="display: none; width: 3rem; height: 3rem;">
+      <span class="visually-hidden">Loading more posts...</span>
+    </div>
+  </div>
+
+  <!-- Infinite scroll trigger -->
   <div 
     hx-get="{% url 'blog:post_list' %}?page={{ page_obj.next_page_number }}"
     hx-trigger="revealed"
     hx-target="this"
     hx-swap="afterend"
+    hx-indicator="#infinite-spinner"
     class="infinite-scroll-trigger">
   </div>
 {% endif %}
+
