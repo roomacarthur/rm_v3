@@ -44,6 +44,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://www.roomacarthur.dev'
 ]
 
+APPEND_SLASH = True
 # Application definition
 
 INSTALLED_APPS = [
