@@ -9,11 +9,13 @@
   <meta name="description" content="{% block metaDescription %}I'm Roo, a Full Stack Developer sharing insights, tutorials, and real-world projects. Explore my notes for technical deep dives on Django, React, and web development, or check out my latest work.{% endblock metaDescription %}" />
   <meta name="keywords" content="{% block metaKeywords %}full stack developer, django, react, python, portfolio, projects, web development{% endblock metaKeywords %}" />
 
-  <!-- Open Graph (OG) Meta Tags -->
+  <!-- Open Graph -->
   <meta property="og:title" content="{% block ogTitle %}Roo MacArthur - Full Stack Developer{% endblock ogTitle %}">
   <meta property="og:description" content="{% block ogDescription %}I'm Roo, a Full Stack Developer sharing insights, tutorials, and real-world projects. Explore my notes for technical deep dives on Django, React, and web development, or check out my latest work.{% endblock ogDescription %}">
-  <meta property="og:image" content="{% block ogImage %}{{ request.build_absolute_uri }}{% static 'images/roo_pink_hs.png' %}{% endblock ogImage %}">
-  <meta property="og:url" content="{{ request.build_absolute_uri }}">
+
+  <meta property="og:image" content="{% block ogImage %}{{ SITE_URL }}{% static 'images/roo_pink_hs.png' %}{% endblock ogImage %}">
+  <meta property="og:image:alt" content="Portrait of Roo MacArthur – Full Stack Developer">
+  <meta property="og:url" content="{{ SITE_URL }}{{ request.get_full_path }}">
   <meta property="og:type" content="{% block ogType %}website{% endblock ogType %}">
   <meta property="og:site_name" content="Roo MacArthur">
 
@@ -21,15 +23,17 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{% block twitterTitle %}Roo MacArthur - Full Stack Developer{% endblock twitterTitle %}">
   <meta name="twitter:description" content="{% block twitterDescription %}I'm Roo, a Full Stack Developer sharing insights, tutorials, and real-world projects. Explore my notes for technical deep dives on Django, React, and web development, or check out my latest work.{% endblock twitterDescription %}">
-  <meta name="twitter:image" content="{% block twitterImage %}{{ request.build_absolute_uri }}{% static 'images/roo_pink_hs.png' %}{% endblock twitterImage %}">
-  <meta name="twitter:url" content="{{ request.build_absolute_uri }}">
-  {% if request.GET.search %}
-    <link rel="canonical" href="https://roomacarthur.dev/notes/{% if request.GET.category %}?category={{ request.GET.category }}{% endif %}" />
-  {% elif request.GET.category %}
-    <link rel="canonical" href="https://roomacarthur.dev{{ request.get_full_path }}" />
-  {% else %}
-    <link rel="canonical" href="https://roomacarthur.dev{{ request.path }}" />
-  {% endif %}
+  <meta name="twitter:image" content="{% block twitterImage %}{{ SITE_URL }}{% static 'images/roo_pink_hs.png' %}{% endblock twitterImage %}">
+  <meta name="twitter:url" content="{{ SITE_URL }}{{ request.get_full_path }}">
+  <!--Canonical urls.-->
+  <link rel="canonical"
+    href="{% if request.GET.search %}
+      {{ SITE_URL }}/notes/{% if request.GET.category %}?category={{ request.GET.category }}{% endif %}
+    {% elif request.GET.category %}
+      {{ SITE_URL }}{{ request.get_full_path }}
+    {% else %}
+      {{ SITE_URL }}{{ request.path }}
+    {% endif %}" />
 
   <title>RM {% block metaTitle %} - Full Stack Dev{% endblock metaTitle %}</title>
 

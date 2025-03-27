@@ -44,6 +44,8 @@ CSRF_TRUSTED_ORIGINS = [
     'https://www.roomacarthur.dev'
 ]
 
+SITE_URL = "https://roomacarthur.dev"
+
 APPEND_SLASH = True
 # Application definition
 
@@ -97,6 +99,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'config.context_processors.site_url',
             ],
         },
     },
