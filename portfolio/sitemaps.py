@@ -2,20 +2,24 @@ from django.contrib.sitemaps import Sitemap
 from .models import PortfolioProject
 from django.urls import reverse
 
+
 class PortfolioProjectSitemap(Sitemap):
+    protocol = "https"
+
     def items(self):
-        return PortfolioProject.objects.filter(is_complete=True)  # Get all portfolio projects, or apply filtering if needed
+        return PortfolioProject.objects.filter(is_complete=True)
 
     def lastmod(self, obj):
-        return obj.updated_at  # Assuming your model has a timestamp for when it was last updated
+        return obj.updated_at
 
     def location(self, obj):
-        return reverse('portfolio:project_detail', args=[str(obj.slug)])  # Use the correct URL pattern name
+        return reverse('portfolio:project_detail', args=[str(obj.slug)])
 
 
 class PortfolioListSitemap(Sitemap):
+    protocol = "https"
+    
     def items(self):
-        # Add any other static paths here if needed
         return ['portfolio']
 
     def location(self, item):

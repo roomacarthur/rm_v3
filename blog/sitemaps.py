@@ -4,19 +4,23 @@ from django.urls import reverse
 
 
 class PostSitemap(Sitemap):
+    protocol = "https"
+    
     def items(self):
-        return Post.objects.all()  # You can filter or order this queryset as needed
+        return Post.objects.all()
 
     def lastmod(self, obj):
-        return obj.edited  # Assuming your model has a timestamp for when it was last updated
+        return obj.edited
 
     def location(self, obj):
         return reverse('blog:post_detail', args=[str(obj.slug)])  
 
 
 class PostListSitemap(Sitemap):
+    protocol = "https"
+
     def items(self):
-        # Add any other static paths here if needed
+        
         return ['post_list']
 
     def location(self, item):
