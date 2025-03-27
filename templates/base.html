@@ -23,6 +23,13 @@
   <meta name="twitter:description" content="{% block twitterDescription %}I'm Roo, a Full Stack Developer sharing insights, tutorials, and real-world projects. Explore my notes for technical deep dives on Django, React, and web development, or check out my latest work.{% endblock twitterDescription %}">
   <meta name="twitter:image" content="{% block twitterImage %}{{ request.build_absolute_uri }}{% static 'images/roo_pink_hs.png' %}{% endblock twitterImage %}">
   <meta name="twitter:url" content="{{ request.build_absolute_uri }}">
+  {% if request.GET.search %}
+    <link rel="canonical" href="https://roomacarthur.dev/notes/{% if request.GET.category %}?category={{ request.GET.category }}{% endif %}" />
+  {% elif request.GET.category %}
+    <link rel="canonical" href="https://roomacarthur.dev{{ request.get_full_path }}" />
+  {% else %}
+    <link rel="canonical" href="https://roomacarthur.dev{{ request.path }}" />
+  {% endif %}
 
   <title>RM {% block metaTitle %} - Full Stack Dev{% endblock metaTitle %}</title>
 
