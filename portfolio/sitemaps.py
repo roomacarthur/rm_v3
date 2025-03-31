@@ -18,7 +18,7 @@ class PortfolioProjectSitemap(Sitemap):
 
 class PortfolioListSitemap(Sitemap):
     protocol = "https"
-    
+
     def items(self):
         return ['portfolio']
 
