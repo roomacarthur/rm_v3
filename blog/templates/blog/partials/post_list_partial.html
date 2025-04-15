@@ -27,14 +27,15 @@
     </div>
   </div>
 
-  <!-- Infinite scroll trigger -->
-  <div 
-    hx-get="{% url 'blog:post_list' %}?page={{ page_obj.next_page_number }}"
-    hx-trigger="revealed"
-    hx-target="this"
-    hx-swap="afterend"
-    hx-indicator="#infinite-spinner"
-    class="infinite-scroll-trigger">
-  </div>
+  {% with query_params=request.GET.urlencode %}
+    <div 
+      hx-get="?{{ query_params }}{% if query_params %}&{% endif %}page={{ page_obj.next_page_number }}"
+      hx-trigger="revealed"
+      hx-target="this"
+      hx-swap="outerHTML"
+      hx-indicator="#infinite-spinner"
+      class="infinite-scroll-trigger">
+    </div>
+  {% endwith %}
 {% endif %}
 
